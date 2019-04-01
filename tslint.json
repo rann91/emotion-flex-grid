@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "tslint-config-standard",
+    "tslint-react",
+    "tslint-config-prettier",
+    "tslint-plugin-prettier"
+  ],
+  "rules": {
+    "prettier": [
+      true, {
+        "singleQuote": true,
+        "semi": false,
+        "jsxSingleQuote": true
+      }
+    ]
+  },
+  "linterOptions": {
+    "exclude": [
+      "**/*.js"
+    ]
+  }
+}

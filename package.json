@@ -1,0 +1,53 @@
+{
+  "name": "emotion-flex-grid",
+  "version": "1.0.0",
+  "description": "Simple flex grid. Made with Emotion.",
+  "keywords": [],
+  "homepage": "https://github.com/rann91/emotion-flex-grid#readme",
+  "bugs": {
+    "url": "https://github.com/rann91/emotion-flex-grid/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rann91/emotion-flex-grid.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "npm run lint"
+  },
+  "devDependencies": {
+    "@emotion/core": "^10.0.9",
+    "@emotion/styled": "^10.0.9",
+    "@types/node": "^11.11.4",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
+    "facepaint": "^1.2.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "tslint": "^5.14.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.4000"
+  },
+  "peerDependencies": {
+    "@emotion/core": "^10.0.9",
+    "@emotion/styled": "^10.0.9",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
