@@ -12,8 +12,9 @@
     "url": "git+https://github.com/rann91/emotion-flex-grid.git"
   },
   "license": "ISC",
-  "author": "",
-  "main": "index.js",
+  "author": "Ranjit Singh",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js",

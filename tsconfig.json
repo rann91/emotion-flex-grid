@@ -9,6 +9,7 @@
     "declarationMap": false,
     "declarationDir": "dist",
     "sourceMap": true,
+    "outDir": "dist",
     "removeComments": true,
     "noEmit": false,
     "strict": true,

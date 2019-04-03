@@ -3,7 +3,7 @@ const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.tsx',
+  entry: './src/index.ts',
   output: {
     filename: 'index.js'
   },
@@ -16,11 +16,11 @@ module.exports = {
   ],
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      { test: /\.tsx?$/, loader: 'ts-loader', options: { configFile: 'tsconfig.prod.json' } },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
     ]
   },
   externals: [
-    nodeExternals({ modulesFromFile: true })
+    nodeExternals({ whitelist: ['facepaint'] })
   ]
 }
