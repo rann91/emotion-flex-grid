@@ -9,8 +9,8 @@ const Section = styled.section({
 
 const Inner = styled.div({
   height: '400px',
-  backgroundColor: 'red',
-  color: '#fff'
+  backgroundColor: 'blue',
+  color: 'white'
 })
 
 const App: FunctionComponent = () => (
@@ -29,3 +29,7 @@ const App: FunctionComponent = () => (
 )
 
 ReactDOM.render(<App />, document.getElementById('example'))
+
+if (module.hot) {
+  module.hot.accept()
+}
