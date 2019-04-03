@@ -1,6 +1,6 @@
+import styled from '@emotion/styled'
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
-import styled from '@emotion/styled'
 import { Col, Row, Wrap } from '..'
 
 const Section = styled.section({
@@ -9,7 +9,7 @@ const Section = styled.section({
 
 const Inner = styled.div({
   height: '400px',
-  backgroundColor: 'blue',
+  backgroundColor: 'red',
   color: '#fff'
 })
 

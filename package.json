@@ -2,7 +2,13 @@
   "name": "emotion-flex-grid",
   "version": "1.0.0",
   "description": "Simple flex grid. Made with Emotion.",
-  "keywords": [],
+  "keywords": [
+    "emotion",
+    "flexbox",
+    "grid",
+    "react",
+    "styled"
+  ],
   "homepage": "https://github.com/rann91/emotion-flex-grid#readme",
   "bugs": {
     "url": "https://github.com/rann91/emotion-flex-grid/issues"
@@ -13,13 +19,17 @@
   },
   "license": "ISC",
   "author": "Ranjit Singh",
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.prod.js",
-    "lint": "tsc --noEmit && tslint -p tsconfig.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode=production",
+    "lint": "tsc --noEmit && tslint -p tsconfig.json --fix",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "start": "webpack-dev-server --mode=development"
   },
   "husky": {
     "hooks": {
@@ -27,7 +37,13 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": "npm run lint"
+    "*.{ts,tsx}": [
+      "tslint -p tsconfig.json",
+      "tsc --noEmit --esModuleInterop --jsx \"React\""
+    ]
+  },
+  "dependencies": {
+    "facepaint": "^1.2.1"
   },
   "devDependencies": {
     "@emotion/core": "^10.0.9",
@@ -52,6 +68,7 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2"
   },
   "peerDependencies": {
@@ -59,8 +76,5 @@
     "@emotion/styled": "^10.0.9",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
-  },
-  "dependencies": {
-    "facepaint": "^1.2.1"
   }
 }
