@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
 import styled from '@emotion/styled'
-import { Col, Row, Wrap } from '../../dist'
+import { Col, Row, Wrap } from '..'
 
 const Section = styled.section({
   padding: '10px 0'
