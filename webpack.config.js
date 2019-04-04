@@ -1,7 +1,7 @@
 const merge = require('webpack-merge')
+const path = require('path')
 const devConfig = require('./webpack.dev')
 const prodConfig = require('./webpack.prod')
-const path = require('path')
 
 const OUTPUT_PATH = path.resolve(__dirname, 'dist')
 
@@ -15,7 +15,12 @@ module.exports = (_, argv) => merge.smart(
     },
     devtool: 'source-map',
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.json']
+      extensions: [
+        '.ts',
+        '.tsx',
+        '.js',
+        '.json'
+      ]
     },
     module: {
       rules: [
