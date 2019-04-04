@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
-import { Col, Row, Wrap } from '..'
+import { Col, Row, Wrap } from '../src'
 
 const Section = styled.section({
   padding: '10px 0'
@@ -9,8 +9,7 @@ const Section = styled.section({
 
 const Inner = styled.div({
   height: '400px',
-  backgroundColor: '#1e90ff',
-  color: 'white'
+  backgroundColor: '#1e90ff'
 })
 
 const App: FunctionComponent = () => (

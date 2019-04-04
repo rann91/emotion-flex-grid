@@ -2,8 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
 
-const ENTRY_FILE = path.resolve(__dirname, 'src', 'example', 'index.tsx')
-const HTML_PATH = path.resolve(__dirname, 'src', 'example', 'index.html')
+const ENTRY_FILE = path.resolve(__dirname, 'example', 'index.tsx')
+const HTML_PATH = path.resolve(__dirname, 'example', 'index.html')
 
 module.exports = {
   entry: [
