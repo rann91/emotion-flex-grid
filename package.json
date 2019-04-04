@@ -26,7 +26,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "webpack --mode=production",
-    "lint": "tsc --noEmit && tslint -p tsconfig.json --fix",
+    "lint": "tsc --noEmit && tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint",
     "start": "webpack-dev-server --mode=development"
@@ -64,6 +64,7 @@
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
+    "tslint-loader": "^3.5.4",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^3.6.0",
     "typescript": "^3.3.4000",

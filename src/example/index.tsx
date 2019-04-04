@@ -18,10 +18,10 @@ const App: FunctionComponent = () => (
     <Wrap>
       <Row>
         <Col>
-          <Inner>Col 1</Inner>
+          <Inner />
         </Col>
         <Col>
-          <Inner>Col 2</Inner>
+          <Inner />
         </Col>
       </Row>
     </Wrap>

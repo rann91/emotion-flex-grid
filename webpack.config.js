@@ -5,8 +5,8 @@ const path = require('path')
 
 const OUTPUT_PATH = path.resolve(__dirname, 'dist')
 
-module.exports = (_, argv) => {
-  const config = {
+module.exports = (_, argv) => merge.smart(
+  {
     output: {
       filename: 'index.js',
       path: OUTPUT_PATH,
@@ -21,7 +21,11 @@ module.exports = (_, argv) => {
       rules: [
         {
           test: /\.tsx?$/,
-          loader: 'ts-loader'
+          use: [
+            {
+              loader: 'ts-loader'
+            }
+          ]
         },
         {
           enforce: 'pre',
@@ -30,10 +34,6 @@ module.exports = (_, argv) => {
         }
       ]
     }
-  }
-
-  return merge.smart(
-    config,
-    argv.mode === 'development' ? devConfig : prodConfig
-  )
-}
+  },
+  argv.mode === 'development' ? devConfig : prodConfig
+)

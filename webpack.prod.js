@@ -10,10 +10,21 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
-        options: {
-          configFile: 'tsconfig.prod.json'
-        }
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: 'tsconfig.prod.json'
+            }
+          },
+          {
+            loader: 'tslint-loader',
+            options: {
+              emitErrors: true,
+              typeCheck: true
+            }
+          }
+        ]
       }
     ]
   },
