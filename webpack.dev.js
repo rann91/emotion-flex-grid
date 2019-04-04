@@ -2,35 +2,31 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
 
+const ENTRY_FILE = path.resolve(__dirname, 'src', 'example', 'index.tsx')
+const HTML_PATH = path.resolve(__dirname, 'src', 'example', 'index.html')
+
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    path.resolve(__dirname, 'src', 'example', 'index.tsx')
+    'webpack-dev-server/client',
+    'webpack/hot/only-dev-server',
+    ENTRY_FILE
   ],
   output: {
     publicPath: '/'
   },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader'
-      },
-      { 
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'source-map-loader'
-      }
-    ]
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'example', 'index.html')
+      template: HTML_PATH
     })
   ],
   devServer: {
     hot: true,
-    open: true
+    open: true,
+    publicPath: '/',
+    clientLogLevel: 'warning',
+    before(app, server) {
+      server._watch(HTML_PATH);
+    },
   }
 }

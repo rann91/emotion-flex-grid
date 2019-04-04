@@ -2,14 +2,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const path = require('path')
 
+const ENTRY_FILE = path.resolve(__dirname, 'src', 'index.ts')
+
 module.exports = {
-  entry: path.resolve(__dirname, 'src', 'index.ts'),
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
-    library: 'emotion-flex-grid',
-    libraryTarget: 'umd'
-  },
+  entry: ENTRY_FILE,
   module: {
     rules: [
       {
@@ -18,11 +14,6 @@ module.exports = {
         options: {
           configFile: 'tsconfig.prod.json'
         }
-      },
-      { 
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'source-map-loader'
       }
     ]
   },
@@ -31,7 +22,9 @@ module.exports = {
   ],
   externals: [
     nodeExternals({
-      whitelist: ['facepaint']
+      whitelist: [
+        'facepaint'
+      ]
     })
   ]
 }

@@ -9,7 +9,7 @@ const Section = styled.section({
 
 const Inner = styled.div({
   height: '400px',
-  backgroundColor: 'blue',
+  backgroundColor: '#1e90ff',
   color: 'white'
 })
 
