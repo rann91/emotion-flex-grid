@@ -1,11 +1,23 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
-const path = require('path')
-
-const ENTRY_FILE = path.resolve(__dirname, 'src', 'index.ts')
+const { LIB_ENTRY, LIB_NAME, LIB_OUTPUT } = require('./constants')
 
 module.exports = {
-  entry: ENTRY_FILE,
+  mode: 'production',
+  entry: LIB_ENTRY,
+  output: {
+    filename: 'index.js',
+    path: LIB_OUTPUT,
+    library: LIB_NAME,
+    libraryTarget: 'umd'
+  },
+  devtool: 'source-map',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json']
+  },
+  plugins: [
+    new CleanWebpackPlugin()
+  ],
   module: {
     rules: [
       {
@@ -14,7 +26,11 @@ module.exports = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.prod.json'
+              configFile: 'tsconfig.lib.json',
+              compilerOptions: {
+                declaration: true,
+                outDir: LIB_OUTPUT
+              }
             }
           },
           {
@@ -28,9 +44,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new CleanWebpackPlugin()
-  ],
   externals: [
     nodeExternals({
       whitelist: [

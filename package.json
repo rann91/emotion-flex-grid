@@ -20,13 +20,13 @@
   "license": "ISC",
   "author": "Ranjit Singh",
   "files": [
-    "dist"
+    "build/lib"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "build/lib/index.js",
+  "types": "build/lib/index.d.ts",
   "scripts": {
-    "start": "webpack-dev-server --mode=development",
-    "build": "webpack --mode=production",
+    "start": "webpack-dev-server --config webpack/dev.js --progress",
+    "build": "webpack --config webpack/prod.js --progress",
     "lint": "tsc --noEmit && tslint -p tsconfig.json",
     "prepublishOnly": "npm run build"
   },
@@ -71,7 +71,6 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
-    "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2"
   },
   "peerDependencies": {
