@@ -73,12 +73,27 @@ const mergeThemes = (theme: any) => ({
   ...theme
 })
 
-const mq = (breakpoints: object) => {
-  const mediaQueries: string[] = Object.values(breakpoints).map(
-    (breakpoint: number) => `@media(min-width: ${breakpoint}px)`
-  )
+const alignProp = (align: GridRowAlignValue | GridRowAlignValue[]) => {
+  const map: { [key in GridRowAlignValue]: string } = {
+    start: 'flex-start',
+    center: 'center',
+    end: 'flex-end'
+  }
 
-  return facepaint(mediaQueries, { overlap: true })
+  return Array.isArray(align) ? align.map(key => map[key]) : map[align]
+}
+
+const justifyProp = (justify: GridRowJustifyValue | GridRowJustifyValue[]) => {
+  const map: { [key in GridRowJustifyValue]: string } = {
+    start: 'flex-start',
+    center: 'center',
+    end: 'flex-end',
+    between: 'space-between',
+    around: 'space-around',
+    evenly: 'space-evenly'
+  }
+
+  return Array.isArray(justify) ? justify.map(key => map[key]) : map[justify]
 }
 
 const widthProp = (size: GridColumnWidthValue | GridColumnWidthValue[]) =>
@@ -94,7 +109,7 @@ const spaceProp = (
     ? spaceKey.map(value => theme.spacings[value])
     : theme.spacings[spaceKey]
 
-const DEFAULT_THEME = {
+export const DEFAULT_THEME = {
   breakpoints: {
     s: 768,
     m: 1024,
@@ -107,6 +122,14 @@ const DEFAULT_THEME = {
     l: 30,
     xl: 60
   }
+}
+
+export const mq = (breakpoints: object = DEFAULT_THEME.breakpoints) => {
+  const mediaQueries: string[] = Object.values(breakpoints).map(
+    (breakpoint: number) => `@media(min-width: ${breakpoint}px)`
+  )
+
+  return facepaint(mediaQueries, { overlap: true })
 }
 
 export const GridWrap = styled.div<GridWrapProps>(props => {
@@ -126,8 +149,8 @@ export const GridRow = styled.div<GridRowProps>(props => {
     display: 'flex',
     flexWrap: props.wrap || 'wrap',
     flexDirection: props.direction || null,
-    alignItems: props.align || null,
-    jusityContent: props.justify || null
+    alignItems: props.align ? alignProp(props.align) : null,
+    jusityContent: props.justify ? justifyProp(props.justify) : null
   })
 })
 
@@ -135,7 +158,7 @@ export const GridColumn = styled.div<GridColumnProps>(props => {
   const theme = mergeThemes(props.theme)
 
   return mq(theme.breakpoints)({
-    width: props.size ? widthProp(props.size) : '100%',
+    width: props.size ? widthProp(props.size) : null,
     order: props.order || null,
     textAlign: props.textAlign || null,
     padding: props.p ? spaceProp(theme, props.p) : null,
