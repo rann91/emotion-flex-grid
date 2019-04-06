@@ -15,7 +15,7 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js', 'json']
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -41,7 +41,7 @@ module.exports = {
     open: true,
     publicPath: '/',
     clientLogLevel: 'warning',
-    before(app, server) {
+    before(_, server) {
       server._watch(APP_TEMPLATE);
     },
   }

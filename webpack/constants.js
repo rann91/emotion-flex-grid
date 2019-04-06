@@ -1,7 +1,7 @@
 const path = require('path')
 
-const resolvePath = function(p) {
-  return path.join(path.resolve(__dirname, '..'), p)
+const resolvePath = function(subPath) {
+  return path.resolve(__dirname, '..', subPath)
 }
 
 module.exports = {
