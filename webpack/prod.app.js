@@ -3,8 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { APP_ENTRY, APP_OUTPUT, APP_TEMPLATE, APP_STATIC_FILES, APP_STATIC_OUPUT } = require('./constants')
 
-console.log(APP_TEMPLATE, APP_STATIC_FILES, APP_STATIC_OUPUT)
-
 module.exports = {
   mode: 'production',
   entry: APP_ENTRY,

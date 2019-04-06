@@ -1,6 +1,5 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { APP_ENTRY, APP_TEMPLATE, SRC_PATH: SRC_PATH } = require('./constants')
 
 module.exports = {
@@ -45,6 +44,6 @@ module.exports = {
     clientLogLevel: 'warning',
     before(_, server) {
       server._watch(APP_TEMPLATE);
-    },
+    }
   }
 }

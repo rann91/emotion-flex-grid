@@ -1,29 +1,30 @@
 import styled from '@emotion/styled'
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
-import { Col, Row, Wrap } from './lib'
+import { GridColumn, GridRow, GridWrap } from './lib'
 
-const Section = styled.section({
-  padding: '10px 0'
-})
+const Section = styled.section()
 
 const Inner = styled.div({
-  height: '400px',
+  height: '30px',
   backgroundColor: '#1e90ff'
 })
 
 const App: FunctionComponent = () => (
   <Section>
-    <Wrap>
-      <Row>
-        <Col>
+    <GridWrap maxWidth={['1200rem']}>
+      <GridRow>
+        <GridColumn size={[12, 4]} p={'s'}>
           <Inner />
-        </Col>
-        <Col>
+        </GridColumn>
+        <GridColumn size={[12, 4]} p={'s'}>
           <Inner />
-        </Col>
-      </Row>
-    </Wrap>
+        </GridColumn>
+        <GridColumn size={[12, 4]} p={'s'}>
+          <Inner />
+        </GridColumn>
+      </GridRow>
+    </GridWrap>
   </Section>
 )
 
