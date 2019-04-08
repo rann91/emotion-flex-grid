@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import isPropValid from '@emotion/is-prop-valid'
 import mergeThemes from '../utilities/merge-themes'
 import { mq } from '../utilities/mq'
 
@@ -38,7 +39,9 @@ const spacingCss = (theme: any, spaceKey: GridColumnSpaceKey | GridColumnSpaceKe
   return Array.isArray(spaceKey) ? spaceKey.map(value => spacing(value)) : spacing(spaceKey)
 }
 
-const GridColumn = styled.div<GridColumnProps>(props => {
+const GridColumn = styled('div', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'width'
+})<GridColumnProps>(props => {
   const theme = mergeThemes(props.theme)
 
   return mq(theme.breakpoints)({

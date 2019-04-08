@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import isPropValid from '@emotion/is-prop-valid'
 import mergeThemes from '../utilities/merge-themes'
 import { mq } from '../utilities/mq'
 
@@ -40,7 +41,9 @@ const justifyProp = (justify: GridRowJustifyValue | GridRowJustifyValue[]) => {
   return Array.isArray(justify) ? justify.map(key => map[key]) : map[justify]
 }
 
-const GridRow = styled.div<GridRowProps>(props => {
+const GridRow = styled('div', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'wrap'
+})<GridRowProps>(props => {
   const theme = mergeThemes(props.theme)
 
   return mq(theme.breakpoints)({
