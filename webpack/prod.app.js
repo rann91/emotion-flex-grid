@@ -1,15 +1,14 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { APP_ENTRY, APP_OUTPUT, APP_TEMPLATE, APP_STATIC_FILES, APP_STATIC_OUPUT } = require('./constants')
+const { APP_ENTRY, APP_OUTPUT, APP_TEMPLATE, APP_STATIC_FILES, APP_STATIC_OUTPUT } = require('./constants')
 
 module.exports = {
   mode: 'production',
   entry: APP_ENTRY,
   output: {
     filename: 'index.js',
-    path: APP_OUTPUT,
-    publicPath: '/'
+    path: APP_OUTPUT
   },
   devtool: 'source-map',
   resolve: {
@@ -23,7 +22,7 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: APP_STATIC_FILES,
-        to: APP_STATIC_OUPUT
+        to: APP_STATIC_OUTPUT
       }
     ])
   ],

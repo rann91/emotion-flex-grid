@@ -13,5 +13,5 @@ module.exports = {
   APP_OUTPUT: resolvePath('build/app'),
   APP_TEMPLATE: resolvePath('src/index.html'),
   APP_STATIC_FILES: resolvePath('src/static'),
-  APP_STATIC_OUPUT: resolvePath('build/app/static')
+  APP_STATIC_OUTPUT: resolvePath('build/app/static')
 }
