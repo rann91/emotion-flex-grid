@@ -8,6 +8,7 @@
   "rules": {
     "prettier": [
       true, {
+        "printWidth": 120,
         "singleQuote": true,
         "semi": false,
         "jsxSingleQuote": true
