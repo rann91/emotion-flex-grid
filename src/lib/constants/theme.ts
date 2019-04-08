@@ -1,5 +1,6 @@
 const THEME = {
   breakpoints: {
+    xs: 480,
     s: 768,
     m: 1024,
     l: 1280,
@@ -7,6 +8,7 @@ const THEME = {
     xxl: 1920
   },
   spacings: {
+    xs: 5,
     s: 10,
     m: 15,
     l: 20,

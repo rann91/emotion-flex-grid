@@ -7,54 +7,99 @@ import { mq } from './lib/utilities/mq'
 import THEME from './lib/constants/theme'
 
 const globalStyles = css({
-  html: {
-    fontSize: '1px'
-  },
   body: {
-    fontSize: '16rem',
     fontFamily: '"Open Sans", sans-serif'
+  },
+  a: {
+    color: '#19b5fe',
+    textDecoration: 'none'
   }
 })
 
-const Section = styled.section()
-
 const Block = styled.div({
-  height: '30px',
+  height: 30,
+  lineHeight: '30px',
+  color: '#fff',
+  fontSize: 12,
   backgroundColor: '#19b5fe'
 })
 
 const Title = styled.h1(
   mq(THEME.breakpoints)({
-    fontSize: ['24rem', '32rem'],
+    fontSize: [24, 32],
     fontWeight: 'bold'
   })
 )
 
 const App: FunctionComponent = () => (
-  <Section>
+  <>
     <Global styles={globalStyles} />
     <GridColumn mx={['s', 'm']}>
       <GridWrap>
-        <GridColumn width={12} textAlign='center' p={['s', 'm']} pt={['m', 'l']}>
+        <GridColumn width={12} textAlign='center' p={['s', 'm']} pt={['l', 'xl']}>
           <GridColumn pb={['s', 'm']}>
             <Title>Emotion Flex Grid</Title>
           </GridColumn>
-          <p>A simple flexbox grid. Made with Emotion.</p>
+          <p>
+            A simple flexbox grid. Made with{' '}
+            <a href='https://emotion.sh' target='_blank'>
+              Emotion
+            </a>
+            .
+          </p>
         </GridColumn>
         <GridRow>
-          <GridColumn width={[12, 4]} p={['s', 'm']}>
+          <GridColumn width={12} p={['xs', 's']} textAlign='center'>
             <Block />
           </GridColumn>
-          <GridColumn width={[12, 4]} p={['s', 'm']}>
+        </GridRow>
+        <GridRow>
+          <GridColumn width={6} p={['xs', 's']} textAlign='center'>
             <Block />
           </GridColumn>
-          <GridColumn width={[12, 4]} p={['s', 'm']}>
+          <GridColumn width={6} p={['xs', 's']} textAlign='center'>
+            <Block />
+          </GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn width={4} p={['xs', 's']} textAlign='center'>
+            <Block />
+          </GridColumn>
+          <GridColumn width={4} p={['xs', 's']} textAlign='center'>
+            <Block />
+          </GridColumn>
+          <GridColumn width={4} p={['xs', 's']} textAlign='center'>
+            <Block />
+          </GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn width={3} p={['xs', 's']} textAlign='center'>
+            <Block />
+          </GridColumn>
+          <GridColumn width={3} p={['xs', 's']} textAlign='center'>
+            <Block />
+          </GridColumn>
+          <GridColumn width={3} p={['xs', 's']} textAlign='center'>
+            <Block />
+          </GridColumn>
+          <GridColumn width={3} p={['xs', 's']} textAlign='center'>
+            <Block />
+          </GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn width={2} p={['xs', 's']}>
+            <Block />
+          </GridColumn>
+          <GridColumn width={8} p={['xs', 's']}>
+            <Block />
+          </GridColumn>
+          <GridColumn width={2} p={['xs', 's']}>
             <Block />
           </GridColumn>
         </GridRow>
       </GridWrap>
     </GridColumn>
-  </Section>
+  </>
 )
 
 ReactDOM.render(<App />, document.getElementById('root'))
