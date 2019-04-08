@@ -3,23 +3,23 @@ import isPropValid from '@emotion/is-prop-valid'
 import mergeThemes from '../utilities/merge-themes'
 import { mq } from '../utilities/mq'
 
-export type GridRowWrapValue = 'wrap' | 'wrap-reverse' | 'nowrap'
+type Wrap = 'wrap' | 'wrap-reverse' | 'nowrap'
 
-export type GridRowAlignValue = 'start' | 'center' | 'end'
+type Align = 'start' | 'center' | 'end'
 
-export type GridRowJustifyValue = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'
+type Justify = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'
 
-export type GridRowDirectionValue = 'row' | 'row-reverse' | 'column' | 'column-reverse'
+type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse'
 
 export interface GridRowProps {
-  wrap?: GridRowWrapValue | GridRowWrapValue[]
-  align?: GridRowAlignValue | GridRowAlignValue[]
-  justify?: GridRowJustifyValue | GridRowJustifyValue[]
-  direction?: GridRowDirectionValue | GridRowDirectionValue[]
+  wrap?: Wrap | Wrap[]
+  align?: Align | Align[]
+  justify?: Justify | Justify[]
+  direction?: Direction | Direction[]
 }
 
-const alignItemsCss = (align: GridRowAlignValue | GridRowAlignValue[]) => {
-  const map: { [key in GridRowAlignValue]: string } = {
+const alignCss = (align: Align | Align[]) => {
+  const map: { [key in Align]: string } = {
     start: 'flex-start',
     center: 'center',
     end: 'flex-end'
@@ -28,8 +28,8 @@ const alignItemsCss = (align: GridRowAlignValue | GridRowAlignValue[]) => {
   return Array.isArray(align) ? align.map(key => map[key]) : map[align]
 }
 
-const justifyContentCss = (justify: GridRowJustifyValue | GridRowJustifyValue[]) => {
-  const map: { [key in GridRowJustifyValue]: string } = {
+const justifyCss = (justify: Justify | Justify[]) => {
+  const map: { [key in Justify]: string } = {
     start: 'flex-start',
     center: 'center',
     end: 'flex-end',
@@ -50,8 +50,8 @@ const GridRow = styled('div', {
     display: 'flex',
     flexWrap: props.wrap || theme.defaults.gridRow.flexWrap,
     flexDirection: props.direction || null,
-    alignItems: props.align ? alignItemsCss(props.align) : null,
-    justifyContent: props.justify ? justifyContentCss(props.justify) : null
+    alignItems: props.align ? alignCss(props.align) : null,
+    justifyContent: props.justify ? justifyCss(props.justify) : null
   })
 })
 

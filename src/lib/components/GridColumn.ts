@@ -7,12 +7,15 @@ type Width = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
 type Align = 'start' | 'center' | 'end'
 
+type Justify = 'start' | 'center' | 'end'
+
 type TextAlign = 'left' | 'right' | 'center'
 
 export interface GridColumnProps {
   width?: Width | Width[]
   order?: number
   align?: Align
+  justify?: Justify
   textAlign?: TextAlign | TextAlign[]
   p?: string | string[]
   px?: string | string[]
@@ -45,6 +48,16 @@ const alignCss = (align: Align | Align[]) => {
   return Array.isArray(align) ? align.map(key => map[key]) : map[align]
 }
 
+const justifyCss = (justify: Justify | Justify[]) => {
+  const map: { [key in Justify]: string } = {
+    start: 'flex-start',
+    center: 'center',
+    end: 'flex-end'
+  }
+
+  return Array.isArray(justify) ? justify.map(key => map[key]) : map[justify]
+}
+
 const spacingCss = (theme: any, spaceKey: string | string[]) => {
   const spacing = (key: string) => theme.spacings[key]
   return Array.isArray(spaceKey) ? spaceKey.map(value => spacing(value)) : spacing(spaceKey)
@@ -59,6 +72,7 @@ const GridColumn = styled('div', {
     width: props.width ? widthCss(props.width) : null,
     order: props.order || null,
     alignSelf: props.align ? alignCss(props.align) : null,
+    justifySelf: props.justify ? justifyCss(props.justify) : null,
     textAlign: props.textAlign || null,
     padding: props.p ? spacingCss(theme, props.p) : null,
     paddingTop: props.pt ? spacingCss(theme, props.pt) : props.py ? spacingCss(theme, props.py) : null,
