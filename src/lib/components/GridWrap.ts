@@ -10,10 +10,9 @@ const GridWrap = styled.div<GridWrapProps>(props => {
   const theme = mergeThemes(props.theme)
 
   return mq(theme.breakpoints)({
-    ...theme.defaults.gridWrap,
     width: '100%',
     margin: 'auto',
-    maxWidth: props.maxWidth || null
+    maxWidth: props.maxWidth || theme.defaults.gridWrap.maxWidth
   })
 })
 

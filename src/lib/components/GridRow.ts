@@ -18,7 +18,7 @@ export interface GridRowProps {
   direction?: GridRowDirectionValue | GridRowDirectionValue[]
 }
 
-const alignProp = (align: GridRowAlignValue | GridRowAlignValue[]) => {
+const alignItemsCss = (align: GridRowAlignValue | GridRowAlignValue[]) => {
   const map: { [key in GridRowAlignValue]: string } = {
     start: 'flex-start',
     center: 'center',
@@ -28,7 +28,7 @@ const alignProp = (align: GridRowAlignValue | GridRowAlignValue[]) => {
   return Array.isArray(align) ? align.map(key => map[key]) : map[align]
 }
 
-const justifyProp = (justify: GridRowJustifyValue | GridRowJustifyValue[]) => {
+const justifyContentCss = (justify: GridRowJustifyValue | GridRowJustifyValue[]) => {
   const map: { [key in GridRowJustifyValue]: string } = {
     start: 'flex-start',
     center: 'center',
@@ -47,12 +47,11 @@ const GridRow = styled('div', {
   const theme = mergeThemes(props.theme)
 
   return mq(theme.breakpoints)({
-    ...theme.defaults.gridRow,
     display: 'flex',
-    flexWrap: props.wrap || null,
+    flexWrap: props.wrap || theme.defaults.gridRow.flexWrap,
     flexDirection: props.direction || null,
-    alignItems: props.align ? alignProp(props.align) : null,
-    justifyContent: props.justify ? justifyProp(props.justify) : null
+    alignItems: props.align ? alignItemsCss(props.align) : null,
+    justifyContent: props.justify ? justifyContentCss(props.justify) : null
   })
 })
 

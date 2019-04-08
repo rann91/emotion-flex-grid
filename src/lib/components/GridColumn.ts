@@ -35,7 +35,7 @@ const widthCss = (width: GridColumnWidthValue | GridColumnWidthValue[]) => {
 }
 
 const spacingCss = (theme: any, spaceKey: GridColumnSpaceKey | GridColumnSpaceKey[]) => {
-  const spacing = (key: string) => theme.spacings[key]
+  const spacing = (key: GridColumnSpaceKey) => theme.spacings[key]
   return Array.isArray(spaceKey) ? spaceKey.map(value => spacing(value)) : spacing(spaceKey)
 }
 

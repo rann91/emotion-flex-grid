@@ -34,7 +34,7 @@ const App: FunctionComponent = () => (
   <Section>
     <Global styles={globalStyles} />
     <GridColumn mx={['s', 'm']}>
-      <GridWrap maxWidth={'1200rem'}>
+      <GridWrap>
         <GridColumn width={12} textAlign='center' p={['s', 'm']} pt={['m', 'l']}>
           <GridColumn pb={['s', 'm']}>
             <Title>Emotion Flex Grid</Title>
