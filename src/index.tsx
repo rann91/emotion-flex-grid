@@ -75,6 +75,17 @@ const Description = styled.p(
   })
 )
 
+const Code = styled.pre(
+  mq()({
+    padding: [10, 15],
+    fontSize: [12, 14],
+    whiteSpace: 'pre-wrap',
+    border: '2px solid #d2d2d2',
+    color: '#24292e',
+    backgroundColor: '#f6f8fa'
+  })
+)
+
 const App: FunctionComponent = () => (
   <>
     <Global styles={globalStyles} />
@@ -131,8 +142,24 @@ const App: FunctionComponent = () => (
               </GridColumn>
             </GridRow>
 
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow>
+  <GridColumn width={4}>
+    <div>Content</div>
+  </GridColumn>
+  <GridColumn width={4}>
+    <div>Content</div>
+  </GridColumn>
+  <GridColumn width={4}>
+    <div>Content</div>
+  </GridColumn>
+</GridRow>`}
+              </Code>
+            </GridColumn>
+
             <GridColumn px={['xs', 's']}>
-              <Description>Auto width</Description>
+              <Description>Auto width (omit 'width' prop)</Description>
             </GridColumn>
             <GridRow>
               <GridColumn p={['xs', 's']}>
@@ -145,6 +172,16 @@ const App: FunctionComponent = () => (
                 <Block />
               </GridColumn>
             </GridRow>
+
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow>
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
 
             <GridColumn width={12} px={['xs', 's']}>
               <Description>Responsive (resize window)</Description>
@@ -163,12 +200,19 @@ const App: FunctionComponent = () => (
                 <Block />
               </GridColumn>
             </GridRow>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow>
+  <GridColumn width={[12, 6, 3]} />
+</GridRow>`}
+              </Code>
+            </GridColumn>
           </section>
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Align</Subtitle>
-              <Description>start</Description>
+              <Subtitle>Align items</Subtitle>
+              <Description>flex-start</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock height={[90, 120]}>
@@ -184,6 +228,15 @@ const App: FunctionComponent = () => (
                   </GridColumn>
                 </GridRow>
               </GroupBlock>
+            </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow align='start'>
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
             </GridColumn>
             <GridColumn px={['xs', 's']}>
               <Description>center</Description>
@@ -203,8 +256,17 @@ const App: FunctionComponent = () => (
                 </GridRow>
               </GroupBlock>
             </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow align='center'>
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
             <GridColumn px={['xs', 's']}>
-              <Description>end</Description>
+              <Description>flex-end</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock height={[90, 120]}>
@@ -221,12 +283,21 @@ const App: FunctionComponent = () => (
                 </GridRow>
               </GroupBlock>
             </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow align='end'>
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
           </section>
 
           <section>
             <GridColumn px={['xs', 's']}>
               <Subtitle>Align self</Subtitle>
-              <Description>start | center | end</Description>
+              <Description>flex-start | center | flex-end</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock height={[90, 120]}>
@@ -243,12 +314,21 @@ const App: FunctionComponent = () => (
                 </GridRow>
               </GroupBlock>
             </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow>
+  <GridColumn align='start' />
+  <GridColumn align='center' />
+  <GridColumn align='end' />
+</GridRow>`}
+              </Code>
+            </GridColumn>
           </section>
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Justify</Subtitle>
-              <Description>start</Description>
+              <Subtitle>Justify content</Subtitle>
+              <Description>flex-start</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock>
@@ -258,6 +338,13 @@ const App: FunctionComponent = () => (
                   </GridColumn>
                 </GridRow>
               </GroupBlock>
+            </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow justify='start'>
+  <GridColumn />
+</GridRow>`}
+              </Code>
             </GridColumn>
             <GridColumn px={['xs', 's']}>
               <Description>center</Description>
@@ -271,8 +358,15 @@ const App: FunctionComponent = () => (
                 </GridRow>
               </GroupBlock>
             </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow justify='center'>
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
             <GridColumn px={['xs', 's']}>
-              <Description>end</Description>
+              <Description>flex-end</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock>
@@ -283,8 +377,15 @@ const App: FunctionComponent = () => (
                 </GridRow>
               </GroupBlock>
             </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow justify='end'>
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
             <GridColumn px={['xs', 's']}>
-              <Description>between</Description>
+              <Description>space-between</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock>
@@ -298,8 +399,16 @@ const App: FunctionComponent = () => (
                 </GridRow>
               </GroupBlock>
             </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow justify='between'>
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
             <GridColumn px={['xs', 's']}>
-              <Description>around</Description>
+              <Description>space-around</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock>
@@ -313,8 +422,16 @@ const App: FunctionComponent = () => (
                 </GridRow>
               </GroupBlock>
             </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow justify='around'>
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
             <GridColumn px={['xs', 's']}>
-              <Description>evenly</Description>
+              <Description>space-evenly</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock>
@@ -328,12 +445,20 @@ const App: FunctionComponent = () => (
                 </GridRow>
               </GroupBlock>
             </GridColumn>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow justify='evenly'>
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
           </section>
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Direction</Subtitle>
-              <Description>row</Description>
+              <Subtitle>Flex direction</Subtitle>
+              <Description>row (default)</Description>
             </GridColumn>
             <GridRow direction='row'>
               <GridColumn textAlign='center' p={['xs', 's']}>
@@ -349,6 +474,16 @@ const App: FunctionComponent = () => (
                 <Block>4</Block>
               </GridColumn>
             </GridRow>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow direction='row'>
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
             <GridColumn px={['xs', 's']}>
               <Description>row-reverse</Description>
             </GridColumn>
@@ -366,6 +501,16 @@ const App: FunctionComponent = () => (
                 <Block>4</Block>
               </GridColumn>
             </GridRow>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow direction='row-reverse'>
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
             <GridColumn px={['xs', 's']}>
               <Description>column</Description>
             </GridColumn>
@@ -383,6 +528,16 @@ const App: FunctionComponent = () => (
                 <Block>4</Block>
               </GridColumn>
             </GridRow>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow direction='column'>
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
             <GridColumn px={['xs', 's']}>
               <Description>column-reverse</Description>
             </GridColumn>
@@ -400,11 +555,21 @@ const App: FunctionComponent = () => (
                 <Block>4</Block>
               </GridColumn>
             </GridRow>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow direction='column-reverse'>
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+  <GridColumn />
+</GridRow>`}
+              </Code>
+            </GridColumn>
           </section>
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Ordering</Subtitle>
+              <Subtitle>Order</Subtitle>
             </GridColumn>
             <GridRow>
               <GridColumn textAlign='center' p={['xs', 's']} order={3}>
@@ -420,6 +585,16 @@ const App: FunctionComponent = () => (
                 <Block>4</Block>
               </GridColumn>
             </GridRow>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow>
+  <GridColumn order={3} />
+  <GridColumn order={1} />
+  <GridColumn order={4} />
+  <GridColumn order={2} />
+</GridRow>`}
+              </Code>
+            </GridColumn>
           </section>
         </GridWrap>
       </GridColumn>

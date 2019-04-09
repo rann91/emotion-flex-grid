@@ -28,8 +28,8 @@
     "start": "webpack-dev-server --config webpack/dev.js --progress",
     "build": "webpack --config webpack/prod.js --progress",
     "lint": "tsc --noEmit && tslint -p tsconfig.json --fix",
-    "preversion": "npm run lint",
     "prepublishOnly": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build/app"
   },
   "husky": {
