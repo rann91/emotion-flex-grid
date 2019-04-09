@@ -7,7 +7,7 @@ module.exports = {
   mode: 'production',
   entry: APP_ENTRY,
   output: {
-    filename: 'index.js',
+    filename: '[name].[contenthash].js',
     path: APP_OUTPUT
   },
   devtool: 'source-map',
