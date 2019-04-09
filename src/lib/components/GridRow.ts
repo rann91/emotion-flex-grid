@@ -42,7 +42,7 @@ const justifyCss = (justify: Justify | Justify[]) => {
 }
 
 const GridRow = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'wrap'
+  shouldForwardProp: prop => isPropValid(prop) && (prop !== 'wrap' && prop !== 'direction')
 })<GridRowProps>(props => {
   const theme = mergeThemes(props.theme)
 
