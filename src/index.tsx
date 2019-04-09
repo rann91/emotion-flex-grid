@@ -6,25 +6,94 @@ import ReactDOM from 'react-dom'
 import { GridColumn, GridRow, GridWrap } from './lib'
 import { mq } from './lib/utilities/mq'
 
-const PRIMARY_COLOR = '#000'
+const PRIMARY_COLOR = 'rgba(0, 168, 255, 1)'
+const BASE_COLOR = '#2f3640'
+const DESCRIPTION_COLOR = '#718093'
+const CODE_BORDER_COLOR = '#dcdde1'
+const CODE_BG_COLOR = '#f5f6fa'
 
 const globalStyles = css(
   mq()({
     body: {
       fontFamily: '"Heebo", sans-serif',
-      fontSize: [14, 16]
+      fontSize: [14, 16],
+      color: BASE_COLOR
     },
     a: {
-      color: 'inherit',
-      textDecoration: 'none'
+      color: 'inherit'
     }
   })
 )
 
 const Header = styled.header(
   mq()({
-    backgroundColor: PRIMARY_COLOR,
-    color: '#fff'
+    paddingTop: [40, 50],
+    paddingBottom: [40, 50],
+    textAlign: 'center',
+    color: '#fff',
+    backgroundColor: BASE_COLOR
+  })
+)
+
+const Title = styled.h1(
+  mq()({
+    fontSize: [24, 36, 64],
+    fontWeight: 900
+  })
+)
+
+const Subtitle = styled.p(
+  mq()({
+    maxWidth: [230, 300, 'none'],
+    margin: 'auto',
+    paddingTop: [15],
+    fontSize: [14, 18],
+    fontWeight: 300,
+    lineHeight: 1.4
+  })
+)
+
+const ButtonContainer = styled.div(
+  mq()({
+    paddingTop: [20, 20, 30]
+  })
+)
+
+const Button = styled.a(
+  mq()({
+    display: 'inline-block',
+    padding: ['10px 20px', '15px 30px'],
+    border: '1px solid #fff',
+    color: '#fff',
+    textDecoration: 'none',
+    textTransform: 'uppercase',
+    transition: 'background-color 0.25s, color 0.25s',
+    ':hover': {
+      backgroundColor: '#fff',
+      color: BASE_COLOR
+    },
+    ':active': {
+      color: '#fff',
+      backgroundColor: 'transparent',
+      transition: 'none '
+    }
+  })
+)
+
+const SectionTitle = styled.h2(
+  mq()({
+    paddingTop: 15,
+    fontSize: [18, 21],
+    fontWeight: 300,
+    textTransform: 'uppercase'
+  })
+)
+
+const Description = styled.p(
+  mq()({
+    paddingTop: [10],
+    fontSize: [12, 14],
+    color: DESCRIPTION_COLOR
   })
 )
 
@@ -43,35 +112,10 @@ const GroupBlock = styled('div', {
 })<{ height?: number | number[] }>(props =>
   mq()({
     padding: ['10px 5px', '20px 10px'],
-    backgroundColor: 'rgba(0, 0, 0, 0.075)',
+    border: `2px dashed ${PRIMARY_COLOR}`,
     '& > div': {
       height: props.height
     }
-  })
-)
-
-const Title = styled.h1(
-  mq()({
-    paddingBottom: 5,
-    fontSize: [24, 36, 52],
-    fontWeight: 900
-  })
-)
-
-const Subtitle = styled.h2(
-  mq()({
-    paddingTop: [15],
-    fontSize: [18, 21],
-    fontWeight: 300,
-    textTransform: 'uppercase'
-  })
-)
-
-const Description = styled.p(
-  mq()({
-    paddingTop: [10],
-    fontSize: [12, 14],
-    color: '#666'
   })
 )
 
@@ -80,9 +124,26 @@ const Code = styled.pre(
     padding: [10, 15],
     fontSize: [12, 14],
     whiteSpace: 'pre-wrap',
-    border: '2px solid #d2d2d2',
-    color: '#24292e',
-    backgroundColor: '#f6f8fa'
+    border: `2px solid ${CODE_BORDER_COLOR}`,
+    backgroundColor: CODE_BG_COLOR
+  })
+)
+
+const Main = styled.main(
+  mq()({
+    paddingTop: [0, 15],
+    paddingBottom: 10
+  })
+)
+
+const Footer = styled.footer(
+  mq()({
+    paddingBottom: [10, 15],
+    fontSize: 12,
+    a: {
+      color: PRIMARY_COLOR,
+      textDecoration: 'none'
+    }
   })
 )
 
@@ -90,23 +151,26 @@ const App: FunctionComponent = () => (
   <>
     <Global styles={globalStyles} />
     <Header>
-      <GridColumn textAlign='center' pt='xl' pb={['l', 'xl']}>
+      <GridWrap maxWidth='75%'>
         <Title>Emotion Flex Grid</Title>
-        <p>
+        <Subtitle>
           A simple, responsive flexbox grid. Made with{' '}
           <a href='https://emotion.sh' target='_blank'>
             Emotion
           </a>
           .
-        </p>
-      </GridColumn>
+        </Subtitle>
+        <ButtonContainer>
+          <Button href='https://github.com/rann91/emotion-flex-grid'>Github</Button>
+        </ButtonContainer>
+      </GridWrap>
     </Header>
-    <main>
+    <Main>
       <GridColumn mx={['s', 'm']}>
         <GridWrap>
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Basic columns</Subtitle>
+              <SectionTitle>Basic columns</SectionTitle>
               <Description>Based on a 12 column grid.</Description>
             </GridColumn>
             <GridRow>
@@ -211,7 +275,7 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Align items</Subtitle>
+              <SectionTitle>Align items</SectionTitle>
               <Description>flex-start</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
@@ -296,7 +360,7 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Align self</Subtitle>
+              <SectionTitle>Align self</SectionTitle>
               <Description>flex-start | center | flex-end</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
@@ -327,7 +391,7 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Justify content</Subtitle>
+              <SectionTitle>Justify content</SectionTitle>
               <Description>flex-start</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
@@ -457,7 +521,7 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Flex direction</Subtitle>
+              <SectionTitle>Flex direction</SectionTitle>
               <Description>row (default)</Description>
             </GridColumn>
             <GridRow direction='row'>
@@ -569,7 +633,7 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <Subtitle>Order</Subtitle>
+              <SectionTitle>Order</SectionTitle>
             </GridColumn>
             <GridRow>
               <GridColumn textAlign='center' p={['xs', 's']} order={3}>
@@ -598,7 +662,20 @@ const App: FunctionComponent = () => (
           </section>
         </GridWrap>
       </GridColumn>
-    </main>
+    </Main>
+    <Footer>
+      <GridColumn mx={['s', 'm']}>
+        <GridWrap>
+          <GridColumn p={['xs', 's']} textAlign='center'>
+            &copy; 2019 Ranjit Singh. View me on{' '}
+            <a href='https://github.com/rann91' target='_blank'>
+              Github
+            </a>
+            .
+          </GridColumn>
+        </GridWrap>
+      </GridColumn>
+    </Footer>
   </>
 )
 
