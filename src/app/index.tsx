@@ -378,14 +378,6 @@ const App: FunctionComponent = () => (
 </GridRow>`}
               </Code>
             </GridColumn>
-            <GridColumn p={['xs', 's']}>
-              <Code>
-                {`<GridRow justify='evenly'>
-  <GridColumn />
-  <GridColumn />
-</GridRow>`}
-              </Code>
-            </GridColumn>
           </section>
 
           <section>
