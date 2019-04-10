@@ -8,11 +8,12 @@ export interface GridWrapProps {
 
 const GridWrap = styled.div<GridWrapProps>(props => {
   const theme = mergeThemes(props.theme)
+  const { maxWidth } = theme.defaults.grid.wrap
 
   return mq(theme.breakpoints)({
     width: '100%',
     margin: 'auto',
-    maxWidth: props.maxWidth || theme.defaults.gridWrap.maxWidth
+    maxWidth: props.maxWidth || maxWidth
   })
 })
 

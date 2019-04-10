@@ -1,3 +1,4 @@
+import './polyfills'
 import styled from '@emotion/styled'
 import isPropValid from '@emotion/is-prop-valid'
 import { Global, css } from '@emotion/core'
@@ -6,11 +7,12 @@ import ReactDOM from 'react-dom'
 import { GridColumn, GridRow, GridWrap } from './lib'
 import { mq } from './lib/utilities/mq'
 
-const PRIMARY_COLOR = 'rgba(0, 168, 255, 1)'
+const PRIMARY_COLOR = '#00a8ff'
 const BASE_COLOR = '#2f3640'
 const DESCRIPTION_COLOR = '#718093'
 const CODE_BORDER_COLOR = '#dcdde1'
 const CODE_BG_COLOR = '#f5f6fa'
+const YEAR = new Date().getFullYear()
 
 const globalStyles = css(
   mq()({
@@ -131,14 +133,14 @@ const Code = styled.pre(
 
 const Main = styled.main(
   mq()({
-    paddingTop: [0, 15],
+    paddingTop: [0, 15, 15, 15, 15, 30],
     paddingBottom: 10
   })
 )
 
 const Footer = styled.footer(
   mq()({
-    paddingBottom: [10, 15],
+    paddingBottom: [15, 15, 15, 15, 15, 20],
     fontSize: 12,
     a: {
       color: PRIMARY_COLOR,
@@ -275,8 +277,8 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <SectionTitle>Align items</SectionTitle>
-              <Description>flex-start</Description>
+              <SectionTitle>Alignment (row)</SectionTitle>
+              <Description>start</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock height={[90, 120]}>
@@ -330,7 +332,7 @@ const App: FunctionComponent = () => (
               </Code>
             </GridColumn>
             <GridColumn px={['xs', 's']}>
-              <Description>flex-end</Description>
+              <Description>end</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock height={[90, 120]}>
@@ -360,8 +362,8 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <SectionTitle>Align self</SectionTitle>
-              <Description>flex-start | center | flex-end</Description>
+              <SectionTitle>Alignment (columns)</SectionTitle>
+              <Description>start | center | end</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock height={[90, 120]}>
@@ -391,8 +393,8 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <SectionTitle>Justify content</SectionTitle>
-              <Description>flex-start</Description>
+              <SectionTitle>Justify</SectionTitle>
+              <Description>start</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock>
@@ -430,7 +432,7 @@ const App: FunctionComponent = () => (
               </Code>
             </GridColumn>
             <GridColumn px={['xs', 's']}>
-              <Description>flex-end</Description>
+              <Description>end</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock>
@@ -449,7 +451,7 @@ const App: FunctionComponent = () => (
               </Code>
             </GridColumn>
             <GridColumn px={['xs', 's']}>
-              <Description>space-between</Description>
+              <Description>between</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock>
@@ -472,7 +474,7 @@ const App: FunctionComponent = () => (
               </Code>
             </GridColumn>
             <GridColumn px={['xs', 's']}>
-              <Description>space-around</Description>
+              <Description>around</Description>
             </GridColumn>
             <GridColumn p={['xs', 's']}>
               <GroupBlock>
@@ -494,21 +496,6 @@ const App: FunctionComponent = () => (
 </GridRow>`}
               </Code>
             </GridColumn>
-            <GridColumn px={['xs', 's']}>
-              <Description>space-evenly</Description>
-            </GridColumn>
-            <GridColumn p={['xs', 's']}>
-              <GroupBlock>
-                <GridRow justify={'evenly'}>
-                  <GridColumn width={3} px={['xs', 's']}>
-                    <Block />
-                  </GridColumn>
-                  <GridColumn width={3} px={['xs', 's']}>
-                    <Block />
-                  </GridColumn>
-                </GridRow>
-              </GroupBlock>
-            </GridColumn>
             <GridColumn p={['xs', 's']}>
               <Code>
                 {`<GridRow justify='evenly'>
@@ -521,7 +508,7 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
-              <SectionTitle>Flex direction</SectionTitle>
+              <SectionTitle>Direction</SectionTitle>
               <Description>row (default)</Description>
             </GridColumn>
             <GridRow direction='row'>
@@ -667,7 +654,7 @@ const App: FunctionComponent = () => (
       <GridColumn mx={['s', 'm']}>
         <GridWrap>
           <GridColumn p={['xs', 's']} textAlign='center'>
-            &copy; 2019 Ranjit Singh. View me on{' '}
+            &copy; 2019{YEAR !== 2019 ? ` - ${YEAR}` : ''} Ranjit Singh. View me on{' '}
             <a href='https://github.com/rann91' target='_blank'>
               Github
             </a>

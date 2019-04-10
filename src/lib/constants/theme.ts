@@ -16,11 +16,13 @@ const THEME = {
     xxl: 60
   },
   defaults: {
-    gridWrap: {
-      maxWidth: 1200
-    },
-    gridRow: {
-      flexWrap: 'wrap'
+    grid: {
+      wrap: {
+        maxWidth: 1200
+      },
+      row: {
+        flexWrap: 'wrap'
+      }
     }
   }
 }

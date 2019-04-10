@@ -1,8 +1,8 @@
-import DEFAULT from '../constants/theme'
+import THEME from '../constants/theme'
 
-const mergeThemes = (theme: any) => ({
-  ...DEFAULT,
-  ...theme
+const mergeThemes = (propTheme: any) => ({
+  ...THEME,
+  ...propTheme
 })
 
 export default mergeThemes

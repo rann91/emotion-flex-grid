@@ -56,7 +56,7 @@ const GridColumn = styled('div', {
   const theme = mergeThemes(props.theme)
 
   return mq(theme.breakpoints)({
-    flex: !props.width ? 1 : null,
+    flex: !props.width ? 'auto' : null,
     width: props.width ? widthCss(props.width) : null,
     order: props.order || null,
     alignSelf: props.align ? alignCss(props.align) : null,

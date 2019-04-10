@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { APP_ENTRY, APP_TEMPLATE, SRC_PATH: SRC_PATH } = require('./constants')
+const { APP_ENTRY, APP_TEMPLATE, SRC_PATH } = require('./constants')
 
 module.exports = {
   mode: 'development',

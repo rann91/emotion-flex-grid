@@ -7,7 +7,7 @@ type Wrap = 'wrap' | 'wrap-reverse' | 'nowrap'
 
 type Align = 'start' | 'center' | 'end'
 
-type Justify = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'
+type Justify = 'start' | 'center' | 'end' | 'between' | 'around'
 
 type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse'
 
@@ -34,8 +34,7 @@ const justifyCss = (justify: Justify | Justify[]) => {
     center: 'center',
     end: 'flex-end',
     between: 'space-between',
-    around: 'space-around',
-    evenly: 'space-evenly'
+    around: 'space-around'
   }
 
   return Array.isArray(justify) ? justify.map(key => map[key]) : map[justify]
@@ -45,10 +44,11 @@ const GridRow = styled('div', {
   shouldForwardProp: prop => isPropValid(prop) && (prop !== 'wrap' && prop !== 'direction')
 })<GridRowProps>(props => {
   const theme = mergeThemes(props.theme)
+  const { flexWrap } = theme.defaults.grid.row
 
   return mq(theme.breakpoints)({
     display: 'flex',
-    flexWrap: props.wrap || theme.defaults.gridRow.flexWrap,
+    flexWrap: props.wrap || flexWrap,
     flexDirection: props.direction || null,
     alignItems: props.align ? alignCss(props.align) : null,
     justifyContent: props.justify ? justifyCss(props.justify) : null
