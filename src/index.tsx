@@ -1,17 +1,21 @@
-import './polyfills'
-import styled from '@emotion/styled'
-import isPropValid from '@emotion/is-prop-valid'
 import { Global, css } from '@emotion/core'
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
 import { GridColumn, GridRow, GridWrap } from './lib'
 import { mq } from './lib/utilities/mq'
+import Header from './components/Header'
+import Subtitle from './components/Subtitle'
+import SectionTitle from './components/SectionTitle'
+import Description from './components/Description'
+import Button from './components/Button'
+import ButtonContainer from './components/ButtonContainer'
+import GroupBlock from './components/GroupBlock'
+import Footer from './components/Footer'
+import Title from './components/Title'
+import Block from './components/Block'
+import Main from './components/Main'
+import Code from './components/Code'
 
-const PRIMARY_COLOR = '#00a8ff'
-const BASE_COLOR = '#2f3640'
-const DESCRIPTION_COLOR = '#718093'
-const CODE_BORDER_COLOR = '#dcdde1'
-const CODE_BG_COLOR = '#f5f6fa'
 const YEAR = new Date().getFullYear()
 
 const globalStyles = css(
@@ -19,132 +23,10 @@ const globalStyles = css(
     body: {
       fontFamily: '"Heebo", sans-serif',
       fontSize: [14, 16],
-      color: BASE_COLOR
+      color: '#2f3640'
     },
     a: {
       color: 'inherit'
-    }
-  })
-)
-
-const Header = styled.header(
-  mq()({
-    paddingTop: [40, 50],
-    paddingBottom: [40, 50],
-    textAlign: 'center',
-    color: '#fff',
-    backgroundColor: BASE_COLOR
-  })
-)
-
-const Title = styled.h1(
-  mq()({
-    fontSize: [24, 36, 64],
-    fontWeight: 900
-  })
-)
-
-const Subtitle = styled.p(
-  mq()({
-    maxWidth: [230, 300, 'none'],
-    margin: 'auto',
-    paddingTop: [15],
-    fontSize: [14, 18],
-    fontWeight: 300,
-    lineHeight: 1.4
-  })
-)
-
-const ButtonContainer = styled.div(
-  mq()({
-    paddingTop: [20, 20, 30]
-  })
-)
-
-const Button = styled.a(
-  mq()({
-    display: 'inline-block',
-    padding: ['10px 20px', '15px 30px'],
-    border: '1px solid #fff',
-    color: '#fff',
-    textDecoration: 'none',
-    textTransform: 'uppercase',
-    transition: 'background-color 0.25s, color 0.25s',
-    ':hover': {
-      backgroundColor: '#fff',
-      color: BASE_COLOR
-    },
-    ':active': {
-      color: '#fff',
-      backgroundColor: 'transparent',
-      transition: 'none '
-    }
-  })
-)
-
-const SectionTitle = styled.h2(
-  mq()({
-    paddingTop: 15,
-    fontSize: [18, 21],
-    fontWeight: 300,
-    textTransform: 'uppercase'
-  })
-)
-
-const Description = styled.p(
-  mq()({
-    paddingTop: [10],
-    fontSize: [12, 14],
-    color: DESCRIPTION_COLOR
-  })
-)
-
-const Block = styled.div(
-  mq()({
-    height: [30, 40],
-    lineHeight: ['30px', '40px'],
-    color: '#fff',
-    fontSize: [10, 12],
-    backgroundColor: PRIMARY_COLOR
-  })
-)
-
-const GroupBlock = styled('div', {
-  shouldForwardProp: (propName: string) => isPropValid(propName) && propName !== 'height'
-})<{ height?: number | number[] }>(props =>
-  mq()({
-    padding: ['10px 5px', '20px 10px'],
-    border: `2px dashed ${PRIMARY_COLOR}`,
-    '& > div': {
-      height: props.height
-    }
-  })
-)
-
-const Code = styled.pre(
-  mq()({
-    padding: [10, 15],
-    fontSize: [12, 14],
-    whiteSpace: 'pre-wrap',
-    border: `2px solid ${CODE_BORDER_COLOR}`,
-    backgroundColor: CODE_BG_COLOR
-  })
-)
-
-const Main = styled.main(
-  mq()({
-    paddingTop: [0, 15, 15, 15, 15, 30],
-    paddingBottom: 10
-  })
-)
-
-const Footer = styled.footer(
-  mq()({
-    paddingBottom: [15, 15, 15, 15, 15, 20],
-    fontSize: 12,
-    a: {
-      color: PRIMARY_COLOR,
-      textDecoration: 'none'
     }
   })
 )

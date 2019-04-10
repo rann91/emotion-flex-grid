@@ -1,11 +1,14 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { APP_ENTRY, APP_OUTPUT, APP_TEMPLATE, APP_STATIC_FILES, APP_STATIC_OUTPUT } = require('./constants')
+const { APP_ENTRY, APP_POLYFILL_ENTRY, APP_OUTPUT, APP_TEMPLATE, APP_STATIC_FILES, APP_STATIC_OUTPUT } = require('./constants')
 
 module.exports = {
   mode: 'production',
-  entry: APP_ENTRY,
+  entry: {
+    polyfills: APP_POLYFILL_ENTRY,
+    index: APP_ENTRY
+  },
   output: {
     filename: '[name].[contenthash].js',
     path: APP_OUTPUT

@@ -1,16 +1,19 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { APP_ENTRY, APP_TEMPLATE, SRC_PATH } = require('./constants')
+const { APP_ENTRY, APP_POLYFILL_ENTRY, APP_TEMPLATE, SRC_PATH } = require('./constants')
 
 module.exports = {
   mode: 'development',
-  entry: [
-    'webpack-dev-server/client',
-    'webpack/hot/only-dev-server',
-    APP_ENTRY
-  ],
+  entry: {
+    polyfills: APP_POLYFILL_ENTRY,
+    index: [
+      APP_ENTRY,
+      'webpack/hot/only-dev-server',
+      'webpack-dev-server/client'
+    ]
+  },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     publicPath: '/'
   },
   devtool: 'source-map',
@@ -42,6 +45,7 @@ module.exports = {
     publicPath: '/',
     contentBase: SRC_PATH,
     clientLogLevel: 'warning',
+    overlay: true,
     before(_, server) {
       server._watch(APP_TEMPLATE);
     }
