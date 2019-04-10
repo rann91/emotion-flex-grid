@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { APP_ENTRY, APP_POLYFILL_ENTRY, APP_TEMPLATE, SRC_PATH } = require('./constants')
+const { APP_ENTRY, APP_POLYFILL_ENTRY, APP_TEMPLATE, APP_PATH } = require('./constants')
 
 module.exports = {
   mode: 'development',
@@ -43,7 +43,7 @@ module.exports = {
     hot: true,
     open: true,
     publicPath: '/',
-    contentBase: SRC_PATH,
+    contentBase: APP_PATH,
     clientLogLevel: 'warning',
     overlay: true,
     before(_, server) {
