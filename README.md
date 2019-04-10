@@ -10,7 +10,7 @@ Install the package:
 npm i emotion-flex-grid
 ```
 
-Import the components you need from the package:
+Import the components:
 
 ```jsx
 import React from 'react'
