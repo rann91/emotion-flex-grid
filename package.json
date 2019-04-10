@@ -29,8 +29,7 @@
     "build": "webpack --config webpack/prod.js --progress",
     "lint": "tsc --noEmit && tslint -p tsconfig.json --fix",
     "prepublishOnly": "npm run build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build/app"
+    "publish": "gh-pages -d build/app"
   },
   "husky": {
     "hooks": {
