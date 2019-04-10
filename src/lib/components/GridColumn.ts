@@ -11,7 +11,7 @@ type TextAlign = 'left' | 'right' | 'center'
 
 export interface GridColumnProps {
   width?: Width | Width[]
-  order?: number
+  order?: number | number[]
   align?: Align
   textAlign?: TextAlign | TextAlign[]
   p?: string | string[]

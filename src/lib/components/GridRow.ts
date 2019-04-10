@@ -13,9 +13,9 @@ type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse'
 
 export interface GridRowProps {
   wrap?: Wrap | Wrap[]
+  direction?: Direction | Direction[]
   align?: Align | Align[]
   justify?: Justify | Justify[]
-  direction?: Direction | Direction[]
 }
 
 const alignCss = (align: Align | Align[]) => {
