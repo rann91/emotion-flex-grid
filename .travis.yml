@@ -4,9 +4,14 @@ deploy:
     email: $EMAIL
     api_key: $API_TOKEN
     skip_cleanup: true
+    on:
+      tag: true
   - provider: pages
-    skip_cleanup: true
     github_token: $GITHUB_TOKEN
+    local_dir: ./build/app
     keep_history: true
+    skip_cleanup: true
+    on:
+      branch: master
 before_deploy:
   - npm i
