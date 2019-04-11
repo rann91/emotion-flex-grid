@@ -5,7 +5,7 @@ deploy:
     api_key: $API_TOKEN
     skip_cleanup: true
     on:
-      tag: true
+      tags: true
   - provider: pages
     github_token: $GITHUB_TOKEN
     local_dir: ./build/app
