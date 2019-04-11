@@ -1,7 +1,9 @@
 language: generic
+
 before_deploy:
   - npm install
   - npm run build
+
 deploy:
   - provider: npm
     email: $EMAIL
@@ -9,6 +11,13 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
+  - provider: npm
+    email: $EMAIL
+    api_key: $API_TOKEN
+    skip_cleanup: true
+    tag: next
+    on:
+      branch: master
   - provider: pages
     github_token: $GITHUB_TOKEN
     local_dir: ./build/app
