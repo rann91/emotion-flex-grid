@@ -1,0 +1,12 @@
+language: generic
+deploy:
+  - provider: npm
+    email: $EMAIL
+    api_key: $API_TOKEN
+    skip_cleanup: true
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+before_deploy:
+  - npm i
