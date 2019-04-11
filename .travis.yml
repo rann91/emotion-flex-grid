@@ -5,7 +5,5 @@ deploy:
   api_key: $NPM_TOKEN
   github_token: $GITHUB_TOKEN
   skip_cleanup: true
-  on:
-    tags: true
 before_deploy:
   - npm i
