@@ -80,7 +80,7 @@ Use this component in combination with GridColumn. All props are optional. Colum
 ```
 
 ### <GridColumn \/>
-Use this component inside a GridRow. You can also use it standalone. All props are optional. When no width is given, columns will _flex_ (auto width).
+Use this component inside a GridRow or use it standalone. All props are optional. When no width is given, columns will _flex_ (auto width) when inside a GridRow.
 
 | Prop | Description | Values |
 | :--- | :--- | :--- |
