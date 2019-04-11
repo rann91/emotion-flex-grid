@@ -2,7 +2,7 @@
 A simple, responsive flexbox grid. Made with [Emotion](https://emotion.sh).
 
 ## Getting started
-Make sure you have set up emotion with styled correctly. See the [Emotion docs](https://emotion.sh/docs/introduction) for more info. After that, install this package with NPM and import the components you need in your React application. For a detailed description about using the components, please see the [Components](##Components) section.
+Make sure you have set up emotion with styled correctly. See the [Emotion docs](https://emotion.sh/docs/introduction) for more info. After that, install this package with NPM and import the components you need in your React application. For a detailed description about using the components, please see the [Components](#Components) section.
 
 ```
 npm i emotion-flex-grid
@@ -38,7 +38,7 @@ For a full example, check out the [demo](https://rann91.github.io/emotion-flex-g
 ## Components
 This package comes with 3 components: GridWrap, GridRow and GridColumn. With these components you can set up a complete grid for your website. Columns are based on a _12 column_ grid system. Below you can see a full overview of each component and the props you can pass to each component.
 
-Numeric values will automatically be converted to a pixel value by Emotion. You can pass an array of values (specified below for each component) to set values for different breakpoints (mobile-first). See the [Customization](##Customization) section for more info on changing the default breakpoints, spacings and other defaults.
+Numeric values will automatically be converted to a pixel value by Emotion. You can pass an array of values (specified below for each component) to set values for different breakpoints (mobile-first). See the [Customization](#Customization) section for more info on changing the default breakpoints, spacings and other defaults.
 
 ### <GridWrap \/>
 Use this component to place your content in a defined, maximum width. Will always center horizontally. Has a default max-width of _1200px_.
