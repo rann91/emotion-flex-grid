@@ -14,15 +14,6 @@ jobs:
       skip_cleanup: true
       on:
         tags: true
-  - stage: npm next release
-    deploy:
-      provider: npm
-      email: $EMAIL
-      api_key: $API_TOKEN
-      skip_cleanup: true
-      tag: next
-      on:
-        branch: master
   - stage: github release
     deploy:
       provider: pages
