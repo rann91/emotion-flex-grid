@@ -1,6 +1,6 @@
 {
   "name": "emotion-flex-grid",
-  "version": "1.0.0-beta13",
+  "version": "1.0.0-beta12",
   "description": "A simple, responsive flexbox grid. Made with Emotion.",
   "keywords": [
     "emotion",
@@ -28,8 +28,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack/dev.js --progress",
     "build": "webpack --config webpack/prod.js --progress",
-    "lint": "tsc --noEmit && tslint -p tsconfig.json --fix",
-    "prepare": "npm run build"
+    "lint": "tsc --noEmit && tslint -p tsconfig.json --fix"
   },
   "husky": {
     "hooks": {
