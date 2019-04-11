@@ -6,7 +6,7 @@ before_deploy:
 
 jobs:
   include:
-  - stage: npm tag release
+  - stage: npm release
     deploy:
       provider: npm
       email: $EMAIL
