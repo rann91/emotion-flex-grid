@@ -4,24 +4,31 @@ before_deploy:
   - npm install
   - npm run build
 
-deploy:
-  - provider: npm
-    email: $EMAIL
-    api_key: $API_TOKEN
-    skip_cleanup: true
-    on:
-      tags: true
-  - provider: npm
-    email: $EMAIL
-    api_key: $API_TOKEN
-    skip_cleanup: true
-    tag: next
-    on:
-      branch: master
-  - provider: pages
-    github_token: $GITHUB_TOKEN
-    local_dir: ./build/app
-    skip_cleanup: true
-    keep_history: true
-    on:
-      branch: master
+jobs:
+  include:
+  - stage: npm tag release
+    deploy:
+      provider: npm
+      email: $EMAIL
+      api_key: $API_TOKEN
+      skip_cleanup: true
+      on:
+        tags: true
+  - stage: npm next release
+    deploy:
+      provider: npm
+      email: $EMAIL
+      api_key: $API_TOKEN
+      skip_cleanup: true
+      tag: next
+      on:
+        branch: master
+  - stage: github release
+    deploy:
+      provider: pages
+      github_token: $GITHUB_TOKEN
+      local_dir: ./build/app
+      skip_cleanup: true
+      keep_history: true
+      on:
+        branch: master
