@@ -2,7 +2,7 @@ language: generic
 deploy:
   - provider: npm
     email: $EMAIL
-    api_key: $NPM_TOKEN
+    api_key: $API_TOKEN
     skip_cleanup: true
   - provider: pages
     skip_cleanup: true
