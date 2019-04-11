@@ -13,6 +13,5 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
-before_deploy:
+install:
   - npm install
-  - npm run build

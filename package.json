@@ -28,7 +28,8 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack/dev.js --progress",
     "build": "webpack --config webpack/prod.js --progress",
-    "lint": "tsc --noEmit && tslint -p tsconfig.json --fix"
+    "lint": "tsc --noEmit && tslint -p tsconfig.json --fix",
+    "prepare": "npm run build"
   },
   "husky": {
     "hooks": {
