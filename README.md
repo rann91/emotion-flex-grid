@@ -1,4 +1,8 @@
 # Emotion Flex Grid
+![GitHub package.json version](https://img.shields.io/github/package-json/v/rann91/emotion-flex-grid.svg?style=flat-square)
+![Travis (.org)](https://img.shields.io/travis/rann91/emotion-flex-grid.svg?style=flat-square)
+![npm](https://img.shields.io/npm/dt/emotion-flex-grid.svg?style=flat-square)
+
 A simple, responsive flexbox grid. Made with [Emotion](https://emotion.sh).
 
 ## Getting started
