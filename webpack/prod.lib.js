@@ -9,7 +9,8 @@ module.exports = {
     filename: 'index.js',
     path: LIB_OUTPUT,
     library: LIB_NAME,
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'this'
   },
   devtool: 'source-map',
   resolve: {
