@@ -19,9 +19,6 @@ const THEME = {
     grid: {
       wrap: {
         maxWidth: 1200
-      },
-      row: {
-        flexWrap: 'wrap'
       }
     }
   }

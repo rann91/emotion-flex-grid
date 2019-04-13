@@ -67,7 +67,7 @@ Use this component to place your content inside a container with a maximum width
 ```
 
 ### <GridRow \/>
-Use this component in combination with GridColumn. All props are optional. Columns _wrap_ by default.
+Use this component in combination with GridColumn. All props are optional.
 
 | Prop | Description | Values |
 | :--- | :--- | :--- |
@@ -141,9 +141,6 @@ const theme = {
     grid: {
       wrap: {
         maxWidth: 1200
-      },
-      row: {
-        flexWrap: 'wrap'
       }
     }
   }

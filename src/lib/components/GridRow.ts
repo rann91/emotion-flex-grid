@@ -44,11 +44,10 @@ const GridRow = styled('div', {
   shouldForwardProp: prop => isPropValid(prop) && (prop !== 'wrap' && prop !== 'direction')
 })<GridRowProps>(props => {
   const theme = mergeThemes(props.theme)
-  const { flexWrap } = theme.defaults.grid.row
 
   return mq(theme.breakpoints)({
     display: 'flex',
-    flexWrap: props.wrap || flexWrap,
+    flexWrap: props.wrap || null,
     flexDirection: props.direction || null,
     alignItems: props.align ? alignCss(props.align) : null,
     justifyContent: props.justify ? justifyCss(props.justify) : null

@@ -57,7 +57,7 @@ const App: FunctionComponent = () => (
               <SectionTitle>Basic columns</SectionTitle>
               <Description>Based on a 12 column grid.</Description>
             </GridColumn>
-            <GridRow>
+            <GridRow wrap='wrap'>
               <GridColumn width={12} p={['xs', 's']} textAlign='center'>
                 <Block />
               </GridColumn>
@@ -92,7 +92,7 @@ const App: FunctionComponent = () => (
 
             <GridColumn p={['xs', 's']}>
               <Code>
-                {`<GridRow>
+                {`<GridRow wrap='wrap'>
   <GridColumn width={4}>
     <div>Content</div>
   </GridColumn>
