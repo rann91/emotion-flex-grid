@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { createEmotionPlugin } = require('emotion-ts-plugin')
 const { APP_ENTRY, APP_POLYFILL_ENTRY, APP_TEMPLATE, APP_PATH } = require('./constants')
 
 module.exports = {
@@ -30,7 +31,12 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader'
+        loader: 'ts-loader',
+        options: {
+          getCustomTransformers: () => ({
+            before: [createEmotionPlugin()]
+          })
+        }
       },
       {
         enforce: 'pre',

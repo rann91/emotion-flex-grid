@@ -13,7 +13,6 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: APP_OUTPUT
   },
-  devtool: 'source-map',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'json']
   },

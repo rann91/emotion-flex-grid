@@ -53,6 +53,7 @@
     "@types/webpack-env": "^1.13.9",
     "clean-webpack-plugin": "^2.0.1",
     "copy-webpack-plugin": "^5.0.2",
+    "emotion-ts-plugin": "^0.3.0",
     "facepaint": "^1.2.1",
     "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
