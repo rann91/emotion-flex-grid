@@ -32,7 +32,12 @@ module.exports = {
                 outDir: LIB_OUTPUT
               },
               getCustomTransformers: () => ({
-                before: [createEmotionPlugin({ autoLabel: false })]
+                before: [
+                  createEmotionPlugin({
+                    autoLabel: false,
+                    sourcemap: false
+                  })
+                ]
               })
             }
           },
