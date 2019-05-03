@@ -17,9 +17,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'json']
   },
-  plugins: [
-    new CleanWebpackPlugin()
-  ],
+  plugins: [new CleanWebpackPlugin()],
   module: {
     rules: [
       {
@@ -34,7 +32,7 @@ module.exports = {
                 outDir: LIB_OUTPUT
               },
               getCustomTransformers: () => ({
-                before: [createEmotionPlugin()]
+                before: [createEmotionPlugin({ autoLabel: false })]
               })
             }
           },
@@ -51,9 +49,7 @@ module.exports = {
   },
   externals: [
     nodeExternals({
-      whitelist: [
-        'facepaint'
-      ]
+      whitelist: ['facepaint']
     })
   ]
 }

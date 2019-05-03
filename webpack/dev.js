@@ -7,11 +7,7 @@ module.exports = {
   mode: 'development',
   entry: {
     polyfills: APP_POLYFILL_ENTRY,
-    index: [
-      APP_ENTRY,
-      'webpack/hot/only-dev-server',
-      'webpack-dev-server/client'
-    ]
+    index: [APP_ENTRY, 'webpack/hot/only-dev-server', 'webpack-dev-server/client']
   },
   output: {
     filename: '[name].js',
@@ -53,7 +49,7 @@ module.exports = {
     clientLogLevel: 'warning',
     overlay: true,
     before(_, server) {
-      server._watch(APP_TEMPLATE);
+      server._watch(APP_TEMPLATE)
     }
   }
 }
