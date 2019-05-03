@@ -3,7 +3,7 @@ import { mq } from '../../lib/utilities/mq'
 
 const Main = styled.main(
   mq()({
-    paddingTop: [0, 15, 15, 15, 15, 30],
+    paddingTop: [0, 15, null, null, null, 30],
     paddingBottom: 10
   })
 )

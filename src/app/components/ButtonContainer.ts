@@ -3,7 +3,7 @@ import { mq } from '../../lib/utilities/mq'
 
 const ButtonContainer = styled.div(
   mq()({
-    paddingTop: [20, 20, 30]
+    paddingTop: [20, null, 30]
   })
 )
 

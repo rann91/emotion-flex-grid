@@ -1,52 +1,65 @@
-import styled from '@emotion/styled'
 import isPropValid from '@emotion/is-prop-valid'
+import styled from '@emotion/styled'
+import { ResponsiveProp } from '../typings'
 import mergeThemes from '../utilities/merge-themes'
 import { mq } from '../utilities/mq'
 
 type Width = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
+type WidthProp = ResponsiveProp<Width>
+
+type OrderProp = ResponsiveProp<number>
+
 type Align = 'start' | 'center' | 'end'
+
+type AlignProp = ResponsiveProp<Align>
 
 type TextAlign = 'left' | 'right' | 'center'
 
+type TextAlignProp = ResponsiveProp<TextAlign>
+
+type SpacingProp = ResponsiveProp<string>
+
 export interface GridColumnProps {
-  width?: Width | Width[]
-  order?: number | number[]
-  align?: Align
-  textAlign?: TextAlign | TextAlign[]
-  p?: string | string[]
-  px?: string | string[]
-  py?: string | string[]
-  pt?: string | string[]
-  pr?: string | string[]
-  pb?: string | string[]
-  pl?: string | string[]
-  m?: string | string[]
-  mx?: string | string[]
-  my?: string | string[]
-  mt?: string | string[]
-  mr?: string | string[]
-  mb?: string | string[]
-  ml?: string | string[]
+  width?: WidthProp
+  order?: OrderProp
+  align?: AlignProp
+  textAlign?: TextAlignProp
+  p?: SpacingProp
+  px?: SpacingProp
+  py?: SpacingProp
+  pt?: SpacingProp
+  pr?: SpacingProp
+  pb?: SpacingProp
+  pl?: SpacingProp
+  m?: SpacingProp
+  mx?: SpacingProp
+  my?: SpacingProp
+  mt?: SpacingProp
+  mr?: SpacingProp
+  mb?: SpacingProp
+  ml?: SpacingProp
 }
 
-const widthCss = (width: Width | Width[]) => {
-  const percentage = (columnWidth: number) => `${(columnWidth / 12) * 100}%`
+const widthCss = (width: WidthProp) => {
+  const percentage = (columnWidth: number | null) => (columnWidth !== null ? `${(columnWidth / 12) * 100}%` : null)
+
   return Array.isArray(width) ? width.map(value => percentage(value)) : percentage(width)
 }
 
-const alignCss = (align: Align | Align[]) => {
+const alignCss = (align: AlignProp) => {
   const map: { [key in Align]: string } = {
     start: 'flex-start',
     center: 'center',
     end: 'flex-end'
   }
 
-  return Array.isArray(align) ? align.map(key => map[key]) : map[align]
+  return Array.isArray(align) ? align.map(key => (key !== null ? map[key] : null)) : map[align]
 }
 
-const spacingCss = (theme: any, spaceKey: string | string[]) => {
-  const spacing = (key: string) => theme.spacings[key]
+const spacingCss = (theme: any, spaceKey: SpacingProp) => {
+  const spacing = (key: string | null) => (key !== null ? theme.spacings[key] : null)
+
   return Array.isArray(spaceKey) ? spaceKey.map(value => spacing(value)) : spacing(spaceKey)
 }
 

@@ -3,7 +3,7 @@ import { mq } from '../../lib/utilities/mq'
 
 const Footer = styled.footer(
   mq()({
-    paddingBottom: [15, 15, 15, 15, 15, 20],
+    paddingBottom: [15, null, null, null, null, 20],
     fontSize: 12,
     a: {
       color: '#00a8ff',

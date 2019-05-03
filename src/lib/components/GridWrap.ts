@@ -1,9 +1,10 @@
 import styled from '@emotion/styled'
+import { ResponsiveProp } from '../typings'
 import mergeThemes from '../utilities/merge-themes'
 import { mq } from '../utilities/mq'
 
 export interface GridWrapProps {
-  maxWidth?: number | string | Array<number | string>
+  maxWidth?: ResponsiveProp<number | string>
 }
 
 const GridWrap = styled.div<GridWrapProps>(props => {

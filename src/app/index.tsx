@@ -1,20 +1,20 @@
-import { Global, css } from '@emotion/core'
+import { css, Global } from '@emotion/core'
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
 import { GridColumn, GridRow, GridWrap } from '../lib'
 import { mq } from '../lib/utilities/mq'
-import Header from './components/Header'
-import Subtitle from './components/Subtitle'
-import SectionTitle from './components/SectionTitle'
-import Description from './components/Description'
+import Block from './components/Block'
 import Button from './components/Button'
 import ButtonContainer from './components/ButtonContainer'
-import GroupBlock from './components/GroupBlock'
-import Footer from './components/Footer'
-import Title from './components/Title'
-import Block from './components/Block'
-import Main from './components/Main'
 import Code from './components/Code'
+import Description from './components/Description'
+import Footer from './components/Footer'
+import GroupBlock from './components/GroupBlock'
+import Header from './components/Header'
+import Main from './components/Main'
+import SectionTitle from './components/SectionTitle'
+import Subtitle from './components/Subtitle'
+import Title from './components/Title'
 
 const YEAR = new Date().getFullYear()
 
@@ -134,23 +134,23 @@ const App: FunctionComponent = () => (
             <GridColumn width={12} px={['xs', 's']}>
               <Description>Responsive (resize window)</Description>
             </GridColumn>
-            <GridRow>
-              <GridColumn width={[12, 6, 3]} p={['xs', 's']}>
+            <GridRow wrap='wrap'>
+              <GridColumn width={[12, null, 6, 3]} p={['xs', 's']}>
                 <Block />
               </GridColumn>
-              <GridColumn width={[12, 6, 3]} p={['xs', 's']}>
+              <GridColumn width={[12, null, 6, 3]} p={['xs', 's']}>
                 <Block />
               </GridColumn>
-              <GridColumn width={[12, 6, 3]} p={['xs', 's']}>
+              <GridColumn width={[12, null, 6, 3]} p={['xs', 's']}>
                 <Block />
               </GridColumn>
-              <GridColumn width={[12, 6, 3]} p={['xs', 's']}>
+              <GridColumn width={[12, null, 6, 3]} p={['xs', 's']}>
                 <Block />
               </GridColumn>
             </GridRow>
             <GridColumn p={['xs', 's']}>
               <Code>
-                {`<GridRow>
+                {`<GridRow wrap='wrap'>
   <GridColumn width={[12, 6, 3]} />
 </GridRow>`}
               </Code>
