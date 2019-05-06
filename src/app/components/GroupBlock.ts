@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
 import isPropValid from '@emotion/is-prop-valid'
-import { mq } from '../../lib/utilities/mq'
+import styled from '@emotion/styled'
+import mq from '../mq'
 
 const GroupBlock = styled('div', {
   shouldForwardProp: (propName: string) => isPropValid(propName) && propName !== 'height'

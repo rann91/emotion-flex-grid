@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { mq } from '../../lib/utilities/mq'
+import mq from '../mq'
 
 const Code = styled.pre(
   mq()({

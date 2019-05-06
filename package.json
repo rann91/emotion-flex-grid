@@ -29,7 +29,9 @@
     "start": "webpack-dev-server --config webpack/dev.js --progress",
     "build:app": "webpack --config webpack/app.js --progress",
     "build:lib": "webpack --config webpack/lib.js --progress",
-    "lint": "tsc --noEmit && tslint -p tsconfig.json --fix"
+    "build": "npm run build:app && npm run build:lib",
+    "prepublishOnly": "npm run test",
+    "test": "tsc -p tsconfig.json --noEmit && tslint -p tsconfig.json --fix"
   },
   "husky": {
     "hooks": {
@@ -37,10 +39,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "tslint -p tsconfig.json",
-      "tsc --noEmit --esModuleInterop --jsx \"React\""
-    ]
+    "*.{ts,tsx}": "npm run test"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.4.4",

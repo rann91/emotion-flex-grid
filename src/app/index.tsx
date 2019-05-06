@@ -2,7 +2,6 @@ import { css, Global } from '@emotion/core'
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
 import { GridColumn, GridRow, GridWrap } from '../lib'
-import { mq } from '../lib/utilities/mq'
 import Block from './components/Block'
 import Button from './components/Button'
 import ButtonContainer from './components/ButtonContainer'
@@ -15,6 +14,7 @@ import Main from './components/Main'
 import SectionTitle from './components/SectionTitle'
 import Subtitle from './components/Subtitle'
 import Title from './components/Title'
+import mq from './mq'
 
 const YEAR = new Date().getFullYear()
 
