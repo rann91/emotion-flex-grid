@@ -19,8 +19,8 @@ npm i emotion-flex-grid
 import React from 'react'
 import { GridWrap, GridRow, GridColumn } from 'emotion-flex-grid'
 
-const App = () => {
-  ;<section>
+const App = () => (
+  <section>
     <GridColumn mx={['s', 'm']}>
       <GridWrap>
         <GridRow>
@@ -37,7 +37,7 @@ const App = () => {
       </GridWrap>
     </GridColumn>
   </section>
-}
+)
 ```
 
 For a full example, check out the [demo](https://rann91.github.io/emotion-flex-grid/).
