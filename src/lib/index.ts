@@ -36,6 +36,8 @@ type TextAlignProp = ResponsiveProp<TextAlign>
 
 type SpacingProp = ResponsiveProp<string>
 
+type DisplayProp = ResponsiveProp<string>
+
 /**
  *
  * Constants
@@ -138,14 +140,18 @@ const spacingCss = (theme: any, spaceKey: SpacingProp | undefined) => {
  * Components
  */
 export interface GridWrapProps {
+  display?: DisplayProp
   maxWidth?: ResponsiveProp<number | string>
 }
 
-export const GridWrap = styled.div<GridWrapProps>(props => {
+export const GridWrap = styled('div', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'display'
+})<GridWrapProps>(props => {
   const theme = mergeThemes(props.theme)
   const { maxWidth } = theme.defaults.grid.wrap
 
   return mq(theme.breakpoints)({
+    display: props.display || null,
     width: '100%',
     margin: 'auto',
     maxWidth: props.maxWidth || maxWidth
@@ -153,6 +159,7 @@ export const GridWrap = styled.div<GridWrapProps>(props => {
 })
 
 export interface GridRowProps {
+  display?: DisplayProp
   wrap?: WrapProp
   direction?: DirectionProp
   align?: AlignProp
@@ -160,12 +167,12 @@ export interface GridRowProps {
 }
 
 export const GridRow = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && (prop !== 'wrap' && prop !== 'direction')
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'wrap' && prop !== 'direction' && prop !== 'display'
 })<GridRowProps>(props => {
   const theme = mergeThemes(props.theme)
 
   return mq(theme.breakpoints)({
-    display: 'flex',
+    display: props.display || 'flex',
     flexWrap: props.wrap || null,
     flexDirection: props.direction || null,
     alignItems: alignCss(props.align),
@@ -174,6 +181,7 @@ export const GridRow = styled('div', {
 })
 
 export interface GridColumnProps {
+  display?: DisplayProp
   width?: WidthProp
   order?: OrderProp
   align?: AlignProp
@@ -195,11 +203,12 @@ export interface GridColumnProps {
 }
 
 export const GridColumn = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'width'
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'width' && prop !== 'display'
 })<GridColumnProps>(props => {
   const theme = mergeThemes(props.theme)
 
   return mq(theme.breakpoints)({
+    display: props.display || null,
     flex: !props.width ? 1 : null,
     msFlex: !props.width ? 'auto' : null,
     width: widthCss(props.width),

@@ -48,6 +48,10 @@ This package comes with 3 components: GridWrap, GridRow and GridColumn. With the
 
 Numeric values will automatically be converted to a pixel value by Emotion. You can pass an array of values (specified below for each component) to set values for different breakpoints (mobile-first). To skip breakpoints, you can use `null`. See the [Customization](#Customization) section for more info on changing the default breakpoints, spacings and other defaults.
 
+### Responsive display
+
+Each component has a `display` prop, which can be used to change the css display property. You can use this to hide or show elements on specific breakpoints.
+
 ### <GridWrap \/>
 
 Use this component to place your content inside a container with a maximum width. Will always center horizontally. Has a default max-width of _1200px_.
