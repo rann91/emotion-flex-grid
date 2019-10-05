@@ -58,6 +58,7 @@ Use this component to place your content inside a container with a maximum width
 
 | Prop     | Description | Values            |
 | :------- | :---------- | :---------------- |
+| display  | display     | `string`          |
 | maxWidth | max-width   | `number` `string` |
 
 ```jsx
@@ -80,6 +81,7 @@ Use this component in combination with GridColumn. All props are optional.
 
 | Prop      | Description     | Values                                        |
 | :-------- | :-------------- | :-------------------------------------------- |
+| display   | display         | `string`                                      |
 | wrap      | flex-wrap       | `wrap` `wrap-reverse` `nowrap` `wrap`         |
 | direction | flex-direction  | `row` `row-reverse` `column` `column-reverse` |
 | align     | align-items     | `start` `center` `end`                        |
@@ -99,6 +101,7 @@ Use this component inside a GridRow or use it standalone. All props are optional
 
 | Prop      | Description        | Values                      |
 | :-------- | :----------------- | :-------------------------- |
+| display   | display            | `string`                    |
 | width     | width              | `1 to 12`                   |
 | order     | flex order         | `number`                    |
 | align     | align-self         | `start` `center` `end`      |
