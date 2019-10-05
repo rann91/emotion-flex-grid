@@ -34,7 +34,9 @@ type TextAlign = 'left' | 'right' | 'center'
 
 type TextAlignProp = ResponsiveProp<TextAlign>
 
-type SpacingProp = ResponsiveProp<string>
+type Spacing = string | 0
+
+type SpacingProp = ResponsiveProp<Spacing>
 
 type DisplayProp = ResponsiveProp<string>
 
@@ -126,11 +128,11 @@ const widthCss = (width: WidthProp | undefined) => {
 }
 
 const spacingCss = (theme: any, spaceKey: SpacingProp | undefined) => {
-  if (!spaceKey) {
+  if (!spaceKey && spaceKey !== 0) {
     return null
   }
 
-  const spacing = (key: string | null) => (key !== null ? theme.spacings[key] : null)
+  const spacing = (key: string | null | 0) => (key !== null && key !== 0 ? theme.spacings[key] : key === 0 ? 0 : null)
 
   return Array.isArray(spaceKey) ? spaceKey.map(value => spacing(value)) : spacing(spaceKey)
 }
