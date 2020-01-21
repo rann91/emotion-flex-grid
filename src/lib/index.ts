@@ -40,6 +40,8 @@ type SpacingProp = ResponsiveProp<Spacing>
 
 type DisplayProp = ResponsiveProp<string>
 
+type FlexProp = ResponsiveProp<string>
+
 /**
  *
  * Constants
@@ -188,6 +190,7 @@ export interface GridColumnProps {
   order?: OrderProp
   align?: AlignProp
   textAlign?: TextAlignProp
+  flex?: FlexProp
   p?: SpacingProp
   px?: SpacingProp
   py?: SpacingProp
@@ -211,8 +214,7 @@ export const GridColumn = styled('div', {
 
   return mq(theme.breakpoints)({
     display: props.display || null,
-    flex: !props.width ? 1 : null,
-    msFlex: !props.width ? 'auto' : null,
+    flex: props.flex ? props.flex : !props.width ? 1 : null,
     width: widthCss(props.width),
     order: props.order || null,
     alignSelf: alignCss(props.align),

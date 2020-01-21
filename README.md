@@ -88,7 +88,7 @@ Use this component in combination with GridColumn. All props are optional.
 | justify   | justify-content | `start` `center` `end` `between` `around`     |
 
 ```jsx
-<GridRow wrap='nowrap' align='center' justify='between'>
+<GridRow wrap="nowrap" align="center" justify="between">
   <GridColumn />
   <GridColumn />
   <GridColumn />
@@ -97,7 +97,7 @@ Use this component in combination with GridColumn. All props are optional.
 
 ### <GridColumn \/>
 
-Use this component inside a GridRow or use it standalone. All props are optional. When no width is given, columns will _flex_ (auto width) when inside a GridRow.
+Use this component inside a GridRow or use it standalone. All props are optional. When no width **and** flex are given, columns will automatically flex (when inside a GridRow).
 
 | Prop      | Description        | Values                      |
 | :-------- | :----------------- | :-------------------------- |
@@ -106,6 +106,7 @@ Use this component inside a GridRow or use it standalone. All props are optional
 | order     | flex order         | `number`                    |
 | align     | align-self         | `start` `center` `end`      |
 | textAlign | text-align         | `left` `right` `center`     |
+| flex      | flex               | `string`                    |
 | p         | padding            | `xs` `s` `m` `l` `xl` `xxl` |
 | px        | horizontal padding | `xs` `s` `m` `l` `xl` `xxl` |
 | py        | vertical padding   | `xs` `s` `m` `l` `xl` `xxl` |
