@@ -2,26 +2,28 @@ language: generic
 
 jobs:
   include:
-  - stage: npm release
-    before_deploy:
-      - npm install
-      - npm run build:lib
-    deploy:
-      provider: npm
-      email: $EMAIL
-      api_key: $API_TOKEN
-      skip_cleanup: true
-      on:
-        tags: true
-  - stage: github release
-    before_deploy:
-      - npm install
-      - npm run build:app
-    deploy:
-      provider: pages
-      github_token: $GITHUB_TOKEN
-      local_dir: ./build/app
-      skip_cleanup: true
-      keep_history: true
-      on:
-        branch: master
+    - stage: npm release
+      before_deploy:
+        - npm install
+        - npm run build:lib
+      deploy:
+        provider: npm
+        email: $EMAIL
+        api_key: $API_TOKEN
+        skip_cleanup: true
+        edge: true
+        on:
+          tags: true
+    - stage: github release
+      before_deploy:
+        - npm install
+        - npm run build:app
+      deploy:
+        provider: pages
+        github_token: $GITHUB_TOKEN
+        local_dir: ./build/app
+        skip_cleanup: true
+        keep_history: true
+        edge: true
+        on:
+          branch: master
