@@ -100,9 +100,7 @@ const alignCss = (align: AlignProp | undefined) => {
     end: 'flex-end'
   }
 
-  return Array.isArray(align)
-    ? align.map(key => (key !== null ? map[key] : null))
-    : map[align]
+  return Array.isArray(align) ? align.map(key => (key !== null ? map[key] : null)) : map[align]
 }
 
 const justifyCss = (justify: JustifyProp | undefined) => {
@@ -118,9 +116,7 @@ const justifyCss = (justify: JustifyProp | undefined) => {
     around: 'space-around'
   }
 
-  return Array.isArray(justify)
-    ? justify.map(key => (key !== null ? map[key] : null))
-    : map[justify]
+  return Array.isArray(justify) ? justify.map(key => (key !== null ? map[key] : null)) : map[justify]
 }
 
 const widthCss = (width: WidthProp | undefined) => {
@@ -128,12 +124,9 @@ const widthCss = (width: WidthProp | undefined) => {
     return null
   }
 
-  const percentage = (columnWidth: number | null) =>
-    columnWidth !== null ? `${(columnWidth / 12) * 100}%` : null
+  const percentage = (columnWidth: number | null) => (columnWidth !== null ? `${(columnWidth / 12) * 100}%` : null)
 
-  return Array.isArray(width)
-    ? width.map(value => percentage(value))
-    : percentage(width)
+  return Array.isArray(width) ? width.map(value => percentage(value)) : percentage(width)
 }
 
 const spacingCss = (theme: any, spaceKey: SpacingProp | undefined) => {
@@ -141,12 +134,9 @@ const spacingCss = (theme: any, spaceKey: SpacingProp | undefined) => {
     return null
   }
 
-  const spacing = (key: string | null | 0) =>
-    key !== null && key !== 0 ? theme.spacings[key] : key === 0 ? 0 : null
+  const spacing = (key: string | null | 0) => (key !== null && key !== 0 ? theme.spacings[key] : key === 0 ? 0 : null)
 
-  return Array.isArray(spaceKey)
-    ? spaceKey.map(value => spacing(value))
-    : spacing(spaceKey)
+  return Array.isArray(spaceKey) ? spaceKey.map(value => spacing(value)) : spacing(spaceKey)
 }
 
 /**
@@ -181,11 +171,7 @@ export interface GridRowProps {
 }
 
 export const GridRow = styled('div', {
-  shouldForwardProp: prop =>
-    isPropValid(prop) &&
-    prop !== 'wrap' &&
-    prop !== 'direction' &&
-    prop !== 'display'
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'wrap' && prop !== 'direction' && prop !== 'display'
 })<GridRowProps>(props => {
   const theme = mergeThemes(props.theme)
 
@@ -222,15 +208,13 @@ export interface GridColumnProps {
 }
 
 export const GridColumn = styled('div', {
-  shouldForwardProp: prop =>
-    isPropValid(prop) && prop !== 'width' && prop !== 'display'
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'width' && prop !== 'display'
 })<GridColumnProps>(props => {
   const theme = mergeThemes(props.theme)
 
   return mq(theme.breakpoints)({
     display: props.display || null,
-    flex:
-      props.flex !== undefined ? props.flex : !props.width ? '1 0 auto' : null,
+    flex: props.flex !== undefined ? props.flex : !props.width ? '1 0 auto' : null,
     width: widthCss(props.width),
     order: props.order || null,
     alignSelf: alignCss(props.align),
