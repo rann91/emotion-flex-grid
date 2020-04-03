@@ -214,9 +214,9 @@ export const GridColumn = styled('div', {
 
   return mq(theme.breakpoints)({
     display: props.display || null,
-    flex: props.flex !== undefined ? props.flex : !props.width ? '1 0 auto' : null,
+    flex: props.flex !== undefined ? props.flex : props.width === undefined ? '1 0 auto' : null,
     width: widthCss(props.width),
-    order: props.order || null,
+    order: props.order !== undefined ? props.order : null,
     alignSelf: alignCss(props.align),
     textAlign: props.textAlign || null,
     padding: spacingCss(theme, props.p),
