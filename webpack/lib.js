@@ -1,4 +1,4 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const { createEmotionPlugin } = require('emotion-ts-plugin')
 const { LIB_ENTRY, LIB_NAME, LIB_OUTPUT } = require('./constants')

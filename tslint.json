@@ -6,18 +6,9 @@
     "tslint-plugin-prettier"
   ],
   "rules": {
-    "prettier": [
-      true, {
-        "printWidth": 120,
-        "singleQuote": true,
-        "semi": false,
-        "jsxSingleQuote": true
-      }
-    ]
+    "prettier": true
   },
   "linterOptions": {
-    "exclude": [
-      "**/*.js"
-    ]
+    "exclude": ["**/*.js"]
   }
 }
