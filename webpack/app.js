@@ -28,12 +28,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: APP_TEMPLATE
     }),
-    new CopyWebpackPlugin([
-      {
-        from: APP_STATIC_FILES,
-        to: APP_STATIC_OUTPUT
-      }
-    ])
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: APP_STATIC_FILES,
+          to: APP_STATIC_OUTPUT
+        }
+      ]
+    })
   ],
   module: {
     rules: [

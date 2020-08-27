@@ -54,7 +54,7 @@ module.exports = {
   },
   externals: [
     nodeExternals({
-      whitelist: ['facepaint']
+      allowlist: ['facepaint']
     })
   ]
 }
