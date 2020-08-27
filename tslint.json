@@ -9,6 +9,6 @@
     "prettier": true
   },
   "linterOptions": {
-    "exclude": ["**/*.js"]
+    "exclude": ["node_modules", "**/*.js"]
   }
 }
