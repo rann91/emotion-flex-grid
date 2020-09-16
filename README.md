@@ -1,4 +1,4 @@
-# Emotion Flex Grid
+#o Emotion Flex Grid
 
 ![npm](https://img.shields.io/npm/v/emotion-flex-grid.svg?color=%2344cc11&style=flat-square)
 ![Travis (.org)](https://img.shields.io/travis/rann91/emotion-flex-grid.svg?style=flat-square)
@@ -103,6 +103,7 @@ Use this component inside a GridRow or use it standalone. All props are optional
 | :-------- | :----------------- | :-------------------------- |
 | display   | display            | `string`                    |
 | width     | width              | `1 to 12` `string`          |
+| offset    | offset             | same as width               |
 | order     | flex order         | `number`                    |
 | align     | align-self         | `start` `center` `end`      |
 | textAlign | text-align         | `left` `right` `center`     |
