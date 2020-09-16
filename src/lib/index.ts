@@ -187,6 +187,7 @@ export const GridRow = styled('div', {
 export interface GridColumnProps {
   display?: DisplayProp
   width?: WidthProp
+  offset?: WidthProp
   order?: OrderProp
   align?: AlignProp
   textAlign?: TextAlignProp
@@ -228,6 +229,6 @@ export const GridColumn = styled('div', {
     marginTop: spacingCss(theme, props.mt || props.my),
     marginRight: spacingCss(theme, props.mr || props.mx),
     marginBottom: spacingCss(theme, props.mb || props.my),
-    marginLeft: spacingCss(theme, props.ml || props.mx)
+    marginLeft: props.offset ? widthCss(props.offset) : spacingCss(theme, props.ml || props.mx)
   })
 })

@@ -521,6 +521,28 @@ const App: FunctionComponent = () => (
               </Code>
             </GridColumn>
           </section>
+
+          <section>
+            <GridColumn px={['xs', 's']}>
+              <SectionTitle>Offset</SectionTitle>
+            </GridColumn>
+            <GridRow>
+              <GridColumn textAlign='center' p={['xs', 's']} width={4} offset={2}>
+                <Block>1</Block>
+              </GridColumn>
+              <GridColumn textAlign='center' p={['xs', 's']} width={2} offset={2}>
+                <Block>2</Block>
+              </GridColumn>
+            </GridRow>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow>
+  <GridColumn width={4} offset={2} />
+  <GridColumn width={2} offset={2} />
+</GridRow>`}
+              </Code>
+            </GridColumn>
+          </section>
         </GridWrap>
       </GridColumn>
     </Main>
