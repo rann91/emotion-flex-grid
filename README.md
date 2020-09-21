@@ -102,7 +102,7 @@ Use this component inside a GridRow or use it standalone. All props are optional
 | Prop      | Description        | Values                      |
 | :-------- | :----------------- | :-------------------------- |
 | display   | display            | `string`                    |
-| width     | width              | `1 to 12`                   |
+| width     | width              | `1 to 12` `string`          |
 | order     | flex order         | `number`                    |
 | align     | align-self         | `start` `center` `end`      |
 | textAlign | text-align         | `left` `right` `center`     |
