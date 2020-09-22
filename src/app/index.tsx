@@ -159,6 +159,28 @@ const App: FunctionComponent = () => (
 
           <section>
             <GridColumn px={['xs', 's']}>
+              <SectionTitle>Offset</SectionTitle>
+            </GridColumn>
+            <GridRow>
+              <GridColumn textAlign='center' p={['xs', 's']} width={4} offset={2}>
+                <Block>1</Block>
+              </GridColumn>
+              <GridColumn textAlign='center' p={['xs', 's']} width={2} offset={2}>
+                <Block>2</Block>
+              </GridColumn>
+            </GridRow>
+            <GridColumn p={['xs', 's']}>
+              <Code>
+                {`<GridRow>
+  <GridColumn width={4} offset={2} />
+  <GridColumn width={2} offset={2} />
+</GridRow>`}
+              </Code>
+            </GridColumn>
+          </section>
+
+          <section>
+            <GridColumn px={['xs', 's']}>
               <SectionTitle>Alignment (row)</SectionTitle>
               <Description>start</Description>
             </GridColumn>
@@ -268,28 +290,6 @@ const App: FunctionComponent = () => (
   <GridColumn align='start' />
   <GridColumn align='center' />
   <GridColumn align='end' />
-</GridRow>`}
-              </Code>
-            </GridColumn>
-          </section>
-
-          <section>
-            <GridColumn px={['xs', 's']}>
-              <SectionTitle>Offset</SectionTitle>
-            </GridColumn>
-            <GridRow>
-              <GridColumn textAlign='center' p={['xs', 's']} width={4} offset={2}>
-                <Block>1</Block>
-              </GridColumn>
-              <GridColumn textAlign='center' p={['xs', 's']} width={2} offset={2}>
-                <Block>2</Block>
-              </GridColumn>
-            </GridRow>
-            <GridColumn p={['xs', 's']}>
-              <Code>
-                {`<GridRow>
-  <GridColumn width={4} offset={2} />
-  <GridColumn width={2} offset={2} />
 </GridRow>`}
               </Code>
             </GridColumn>
@@ -539,28 +539,6 @@ const App: FunctionComponent = () => (
   <GridColumn order={1} />
   <GridColumn order={4} />
   <GridColumn order={2} />
-</GridRow>`}
-              </Code>
-            </GridColumn>
-          </section>
-
-          <section>
-            <GridColumn px={['xs', 's']}>
-              <SectionTitle>Offset</SectionTitle>
-            </GridColumn>
-            <GridRow>
-              <GridColumn textAlign='center' p={['xs', 's']} width={4} offset={2}>
-                <Block>1</Block>
-              </GridColumn>
-              <GridColumn textAlign='center' p={['xs', 's']} width={2} offset={2}>
-                <Block>2</Block>
-              </GridColumn>
-            </GridRow>
-            <GridColumn p={['xs', 's']}>
-              <Code>
-                {`<GridRow>
-  <GridColumn width={4} offset={2} />
-  <GridColumn width={2} offset={2} />
 </GridRow>`}
               </Code>
             </GridColumn>
