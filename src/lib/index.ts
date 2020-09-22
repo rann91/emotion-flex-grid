@@ -24,7 +24,7 @@ type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse'
 
 type DirectionProp = ResponsiveProp<Direction>
 
-type Width = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+type Width = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | string
 
 type WidthProp = ResponsiveProp<Width>
 
@@ -126,7 +126,11 @@ const widthCss = (width: WidthProp | undefined) => {
 
   const percentage = (columnWidth: number | null) => (columnWidth !== null ? `${(columnWidth / 12) * 100}%` : null)
 
-  return Array.isArray(width) ? width.map((value) => percentage(value)) : percentage(width)
+  return Array.isArray(width)
+    ? width.map((value) => (typeof value === 'string' ? value : percentage(value)))
+    : typeof width === 'string'
+    ? width
+    : percentage(width)
 }
 
 const spacingCss = (theme: any, spaceKey: SpacingProp | undefined) => {
@@ -209,7 +213,7 @@ export interface GridColumnProps {
 }
 
 export const GridColumn = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'width' && prop !== 'display'
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'width' && prop !== 'display' && prop !== 'offset'
 })<GridColumnProps>((props) => {
   const theme = mergeThemes(props.theme)
 
