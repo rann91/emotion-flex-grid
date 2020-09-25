@@ -1,4 +1,4 @@
-#o Emotion Flex Grid
+# Emotion Flex Grid
 
 ![npm](https://img.shields.io/npm/v/emotion-flex-grid.svg?color=%2344cc11&style=flat-square)
 ![Travis (.org)](https://img.shields.io/travis/rann91/emotion-flex-grid.svg?style=flat-square)
