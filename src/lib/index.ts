@@ -94,7 +94,7 @@ const alignCss = (align: AlignProp | undefined) => {
     return null
   }
 
-  const map: { [key in Align]: string } = {
+  const map = {
     start: 'flex-start',
     center: 'center',
     end: 'flex-end'
@@ -108,7 +108,7 @@ const justifyCss = (justify: JustifyProp | undefined) => {
     return null
   }
 
-  const map: { [key in Justify]: string } = {
+  const map = {
     start: 'flex-start',
     center: 'center',
     end: 'flex-end',

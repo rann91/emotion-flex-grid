@@ -1,6 +1,6 @@
 const path = require('path')
 
-const resolvePath = function(subPath) {
+const resolvePath = function (subPath) {
   return path.resolve(__dirname, '..', subPath)
 }
 
@@ -9,7 +9,6 @@ module.exports = {
   LIB_ENTRY: resolvePath('src/lib/index.ts'),
   LIB_OUTPUT: resolvePath('build/lib'),
   APP_PATH: resolvePath('src/app'),
-  APP_POLYFILL_ENTRY: resolvePath('src/app/polyfills.ts'),
   APP_ENTRY: resolvePath('src/app/index.tsx'),
   APP_OUTPUT: resolvePath('build/app'),
   APP_TEMPLATE: resolvePath('src/app/index.html'),

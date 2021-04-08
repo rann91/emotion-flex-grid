@@ -88,7 +88,7 @@ Use this component in combination with GridColumn. All props are optional.
 | justify   | justify-content | `start` `center` `end` `between` `around`     |
 
 ```jsx
-<GridRow wrap="nowrap" align="center" justify="between">
+<GridRow wrap='nowrap' align='center' justify='between'>
   <GridColumn />
   <GridColumn />
   <GridColumn />
@@ -166,10 +166,6 @@ const theme = {
 Simply copy this configuration to your own theme configuration and adjust the values for your project.
 
 **Note: make sure you don't change the structure of the configuration above, otherwise things will break!**
-
-## Browser support
-
-Tested in all major browsers. For IE11, the [babel polyfill](https://babeljs.io/docs/en/babel-polyfill) needs to be included in your project.
 
 ## Inspiration
 

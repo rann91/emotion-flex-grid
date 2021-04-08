@@ -1,4 +1,4 @@
-import { css, Global } from '@emotion/core'
+import { css, Global } from '@emotion/react'
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
 import { GridColumn, GridRow, GridWrap } from '../lib'
@@ -39,7 +39,7 @@ const App: FunctionComponent = () => (
         <Title>Emotion Flex Grid</Title>
         <Subtitle>
           A simple, responsive flexbox grid. Made with{' '}
-          <a href='https://emotion.sh' target='_blank'>
+          <a href='https://emotion.sh' target='_blank' rel='noreferrer'>
             Emotion
           </a>
           .
@@ -551,7 +551,7 @@ const App: FunctionComponent = () => (
         <GridWrap>
           <GridColumn p={['xs', 's']} textAlign='center'>
             &copy; 2019{YEAR !== 2019 ? ` - ${YEAR}` : ''} Ranjit Singh. View me on{' '}
-            <a href='https://github.com/rann91' target='_blank'>
+            <a href='https://github.com/rann91' target='_blank' rel='noreferrer'>
               Github
             </a>
             .

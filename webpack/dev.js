@@ -1,25 +1,24 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { createEmotionPlugin } = require('emotion-ts-plugin')
-const { APP_ENTRY, APP_POLYFILL_ENTRY, APP_TEMPLATE, APP_PATH } = require('./constants')
+const { APP_ENTRY, APP_TEMPLATE, APP_PATH } = require('./constants')
 
 module.exports = {
   mode: 'development',
   entry: {
-    polyfills: APP_POLYFILL_ENTRY,
-    index: [APP_ENTRY, 'webpack/hot/only-dev-server', 'webpack-dev-server/client']
+    index: [APP_ENTRY]
   },
   output: {
     filename: '[name].js',
     publicPath: '/'
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'json']
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
+      title: 'Development',
       template: APP_TEMPLATE
     })
   ],
@@ -27,12 +26,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
-        options: {
-          getCustomTransformers: () => ({
-            before: [createEmotionPlugin()]
-          })
-        }
+        loader: 'ts-loader'
       },
       {
         enforce: 'pre',
@@ -46,7 +40,6 @@ module.exports = {
     open: true,
     publicPath: '/',
     contentBase: APP_PATH,
-    clientLogLevel: 'warning',
     overlay: true,
     before(_, server) {
       server._watch(APP_TEMPLATE)
