@@ -36,13 +36,8 @@ module.exports = {
     ]
   },
   devServer: {
-    hot: true,
     open: true,
-    publicPath: '/',
-    contentBase: APP_PATH,
-    overlay: true,
-    before(_, server) {
-      server._watch(APP_TEMPLATE)
-    }
+    static: APP_PATH,
+    watchFiles: [APP_TEMPLATE]
   }
 }
