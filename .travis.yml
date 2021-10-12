@@ -10,7 +10,7 @@ jobs:
         provider: npm
         email: $EMAIL
         api_key: $API_TOKEN
-        skip_cleanup: true
+        cleanup: true
         edge: true
         on:
           tags: true
@@ -22,7 +22,7 @@ jobs:
         provider: pages
         github_token: $GITHUB_TOKEN
         local_dir: ./build/app
-        skip_cleanup: true
+        cleanup: true
         keep_history: true
         edge: true
         on:
