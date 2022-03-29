@@ -1,9 +1,9 @@
 # Emotion Flex Grid
 
-![npm](https://img.shields.io/npm/v/emotion-flex-grid.svg?color=%2344cc11&style=flat-square)
-![Travis (.org)](https://img.shields.io/travis/rann91/emotion-flex-grid.svg?style=flat-square)
-![npm](https://img.shields.io/badge/size-36.8kB-brightgreen.svg?style=flat-square)
-![npm](https://img.shields.io/npm/dt/emotion-flex-grid.svg?style=flat-square)
+![version](https://badgen.net/npm/v/emotion-flex-grid)
+![downloads](https://badgen.net/npm/dt/emotion-flex-grid)
+![travis](https://badgen.net/travis/rann91/emotion-flex-grid)
+![lastcommit](https://badgen.net/github/last-commit/rann91/emotion-flex-grid)
 
 A simple, responsive flexbox grid. Made with [Emotion](https://emotion.sh).
 
